@@ -1,1 +1,1 @@
-<a src="www.baidu.com">百度</a>
+<a href="www.baidu.com">百度</a>
