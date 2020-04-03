@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* 必写 */
+            perspective: 400px;
+        }
+
+        .box {
+            width: 250px;
+            height: 250px;
+            /* border: 1px solid orange; */
+            margin: 100px auto;
+            position: relative;
+
+            /* 必写 */
+            transform-style: preserve-3d;
+
+            animation: change 5s infinite;
+        }
+
+        @keyframes change {
+            0% {
+                /* transform: rotateX(0deg) rotateY(0deg) */
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            100% {
+                /* transform: rotateX(360deg) rotateY(360deg) */
+                transform: rotate3d(125, 125, 125, 360deg)
+            }
+        }
+
+        .box>div {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            line-height: 250px;
+            text-align: center;
+            opacity: 0.6;
+        }
+
+        .box>div:nth-child(1) {
+            background-color: orange;
+            transform: translateZ(125px)
+        }
+
+        .box>div:nth-child(2) {
+            background-color: pink;
+            transform: rotateY(90deg) translateZ(125px)
+        }
+
+        .box>div:nth-child(3) {
+            background-color: red;
+            transform: rotateY(180deg) translateZ(125px)
+        }
+
+        .box>div:nth-child(4) {
+            background-color: purple;
+            transform: rotateY(270deg) translateZ(125px)
+        }
+
+        .box>div:nth-child(5) {
+            background-color: skyblue;
+            transform: rotateX(90deg) translateZ(125px)
+        }
+
+        .box>div:nth-child(6) {
+            background-color: yellow;
+            transform: rotateX(-90deg) translateZ(125px)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+
+</html>
