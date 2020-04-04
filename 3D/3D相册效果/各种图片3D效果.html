@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(152, 175, 250);
+            perspective: 300px;
+        }
+
+        body,
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 500px;
+            height: 333px;
+            margin: 300px auto;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+
+        ul li {
+            position: absolute;
+            transition: all 1s;
+            border: 3px solid white;
+            box-sizing: border-box;
+        }
+
+        .box ul li:nth-child(1) {
+            z-index: 999;
+            
+
+        }
+
+        .box:nth-child(2) ul li {
+            transform-origin:left bottom;
+        }
+
+        .box:nth-child(3) ul li {
+            transform-origin: right center;
+        }
+
+        .box:nth-child(4) ul li {
+            transform-origin: left bottom;
+        }
+
+        .box:nth-child(5) ul li {
+            transform-origin: center center;
+        }
+
+        .box:nth-child(8) ul li {
+            transform-origin: left bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0006.jpg" alt=""></li>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+            <li><img src="./images/studio_0010.jpg" alt=""></li>
+            <li><img src="./images/studio_0011.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0006.jpg" alt=""></li>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0006.jpg" alt=""></li>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0006.jpg" alt=""></li>
+            <li><img src="./images/studio_0002.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0001.jpg" alt=""></li>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+            <li><img src="./images/studio_0010.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="box">
+        <ul>
+            <li><img src="./images/studio_0008.jpg" alt=""></li>
+            <li><img src="./images/studio_0004.jpg" alt=""></li>
+            <li><img src="./images/studio_0005.jpg" alt=""></li>
+            <li><img src="./images/studio_0006.jpg" alt=""></li>
+            <li><img src="./images/studio_0007.jpg" alt=""></li>
+            <li><img src="./images/studio_0009.jpg" alt=""></li>
+            <li><img src="./images/studio_0003.jpg" alt=""></li>
+            <li><img src="./images/studio_0010.jpg" alt=""></li>
+            <li><img src="./images/studio_0011.jpg" alt=""></li>
+        </ul>
+    </div>
+    
+    <script>
+        var box = document.querySelectorAll('.box')
+        var lis = box[0].querySelectorAll('ul li')
+        var lis1 = box[1].querySelectorAll(' ul li')
+        var lis2 = box[2].querySelectorAll(' ul li')
+        var lis3 = box[3].querySelectorAll(' ul li')
+        var lis4 = box[4].querySelectorAll('ul li')
+        var lis5 = box[5].querySelectorAll(' ul li')
+        var lis6 = box[6].querySelectorAll(' ul li')
+        var lis7 = box[7].querySelectorAll(' ul li')
+        
+        function move1(arr) {
+            for (var i = 1; i < arr.length; i++) {
+                if (i % 2 == 0) {
+                    arr[i].style.transform = 'rotateZ(' + (45 - (i * 6)) + 'deg)'
+                } else {
+                    arr[i].style.transform = 'rotateZ(' + (-45 + (i * 6)) + 'deg)'
+                }
+            }
+        }
+
+
+        function move2(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.transform = 'rotateZ(' + (-(i + 1) * 5) + 'deg) translateY(' + (-i * 50) + 'px) translateX(' + (i * 10) + 'px)'
+                arr[i].style.zIndex = -i * 5;
+
+            }
+        }
+
+        function move3(arr) {
+            for (var i = 1; i < arr.length; i++) {
+                arr[i].style.zIndex = -i * 5;
+                if (i % 2 == 0) {
+                    arr[i].style.transform = 'rotateZ(' + (((i - 1) + 1) * 5) + 'deg) translateY(' + (-i * 20) + 'px) translateX(' + (i * 10) + 'px)'
+                } else {
+                    arr[i].style.transform = 'rotateZ(' + (-(i + 1) * 5) + 'deg) translateY(' + (i * 10) + 'px) translateX(' + (i * 10) + 'px)'
+                }
+            }
+        }
+
+
+        function move4(arr) {
+            for (var i = 1; i < arr.length; i++) {
+                arr[i].style.transform = 'rotateZ(' + (-(i + 1) * 5) + 'deg) translateY(' + (-i * 45) + 'px) translateX(' + (i * 10) + 'px)'
+                arr[i].style.zIndex = -i * 5;
+                arr[i].style.width = '' + (500 - i * 50) + 'px'
+
+            }
+        }
+
+        function move5(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.zIndex = -i * 5
+            }
+            arr[0].style.transform = 'rotateZ(-20deg)'
+            arr[1].style.transform = 'rotateZ(-20deg) translateY(150px) translateX(-100px)'
+            arr[2].style.transform = 'rotateZ(-20deg) translateY(-150px) translateX(100px)'
+            arr[3].style.transform = 'rotateZ(-20deg) translateX(150px) translateY(100px)'
+            arr[4].style.transform = 'rotateZ(-20deg) translateX(-150px) translateY(-100px)'
+        }
+        function move6(arr) {
+
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.zIndex = -i * 5;
+                arr[i].style.width = '250px'
+
+            }
+            arr[0].style.width = '400px'
+            arr[0].style.transform = 'rotateZ(-20deg) '
+            arr[1].style.transform = 'rotateZ(-20deg) translateY(280px) translateX(75px)'
+            arr[2].style.transform = 'rotateZ(-20deg) translateY(-100px)translateX(80px)'
+            arr[3].style.transform = 'rotateZ(-20deg) translateX(350px) translateY(-100px)'
+            arr[4].style.transform = 'rotateZ(-20deg) translateX(-190px) translateY(-100px)'
+            arr[5].style.transform = 'rotateZ(-20deg) translateX(345px) translateY(90px)'
+            arr[6].style.transform = 'rotateZ(-20deg) translateX(345px) translateY(280px)'
+            arr[7].style.transform = 'rotateZ(-20deg) translateX(-190px) translateY(90px)'
+            arr[8].style.transform = 'rotateZ(-20deg) translateX(-190px) translateY(280px)'
+        }
+        function move7(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].style.transform = '  translateZ(' + (40 - i * 5) + 'px) translateX(' + i * 50 + 'px)  '
+
+                arr[i].style.width = '' + (500 - i * 100) + 'px'
+
+            }
+        }
+        function move8(arr) {
+            for (var i = 1; i < arr.length; i++) {
+
+
+                if (i % 2 == 0) {
+                    arr[i].style.transform = 'rotateZ(' + (-i * 8) + 'deg) translateX(300px)'
+
+                } else {
+                    arr[i].style.transform = 'rotateZ(' + (-i * 10) + 'deg) '
+                }
+                arr[i].style.zIndex = -i * 5;
+                arr[i].style.width = '400px';
+
+
+            }
+            arr[0].style.width = '400px';
+        }
+       
+        box[0].onmouseenter = function () {
+            move1(lis)
+        }
+        box[0].onmouseleave = function () {
+            for (var i = 1; i < lis.length; i++) {
+                lis[i].style.transform = 'rotateZ(0deg)'
+            }
+        }
+
+        box[1].onmouseenter = function () {
+            move2(lis1)
+
+
+        }
+        box[1].onmouseleave = function () {
+            for (var i = 0; i < lis1.length; i++) {
+                lis1[i].style.transform = 'none'
+            }
+        }
+
+        box[2].onmouseenter = function () {
+            move3(lis2)
+
+        }
+        box[2].onmouseleave = function () {
+            for (var i = 0; i < lis2.length; i++) {
+                lis2[i].style.transform = 'none'
+            }
+        }
+
+        box[3].onmouseenter = function () {
+            move4(lis3)
+        }
+        box[3].onmouseleave = function () {
+            for (var i = 0; i < lis3.length; i++) {
+                lis3[i].style.transform = 'none'
+            }
+        }
+
+        box[4].onmouseenter = function () {
+            move5(lis4)
+        }
+        box[4].onmouseleave = function () {
+            for (var i = 0; i < lis4.length; i++) {
+                lis4[i].style.transform = 'none'
+            }
+        }
+        box[5].onmouseenter = function () {
+            move6(lis5)
+        }
+        box[5].onmouseleave = function () {
+            for (var i = 0; i < lis5.length; i++) {
+                lis5[i].style.transform = 'none'
+                lis5[i].style.width = '500px'
+            }
+        }
+
+        box[6].onmouseenter = function () {
+            move7(lis6)
+            console.log('xxx');
+
+        }
+        box[6].onmouseleave = function () {
+            for (var i = 0; i < lis6.length; i++) {
+                lis6[i].style.transform = 'none'
+                lis6[i].style.width = '500px'
+            }
+        }
+        box[7].onmouseenter = function () {
+            move8(lis7)
+        }
+        box[7].onmouseleave = function () {
+            for (var i = 0; i < lis7.length; i++) {
+                lis7[i].style.transform = 'none'
+                lis7[i].style.width = '500px'
+            }
+        }
+       
+
+
+    </script>
+</body>
+
+</html>
