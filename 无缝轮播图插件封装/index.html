@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- 横向无缝轮播图 -->
+    <div class="banner aaa">
+        <ul class="images">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>1</li>
+        </ul>
+        <!-- 导航点 -->
+        <div class="navigation">
+        </div>
+        <!-- 切换图片 -->
+        <div class="cut">
+            <div class="prev">
+                < </div>
+                    <div class="next">></div>
+            </div>
+        </div>
+        <p>基本用法：一共有五个属性，
+            自动轮播(autoplay),
+            是否需要导航点(navshow),
+            是否需要导航按钮(cutshow),
+            是否自定义宽度(bannerWidth),
+            是否自定义高度(bannerHeight),
+            设置轮播切换时间(autoplayTime)
+            用法：先引入css和js和html结构，最外面的盒子必须要带有banner类名还要自己自定义一个类名(例如: class="banner
+            aaa")，然后按照下面的步骤把自定义类名传进去，如果同一个页面需要用到多次该插件只需要复制html结构并且改一下自定义类名即可。<br>
+            var a = new Banner("aaa",<br>
+            {<br>
+            autoplay: false,<br>
+            navshow: true,<br>
+            cutshow: true,<br>
+            bannerWidth: 300,<br>
+            bannerHeight: 200<br>
+            autoplayTime:2000 <br>
+            }
+            )<br>
+            a.init()
+           
+            <xmp>
+                html模板：
+                <div class="banner aaa">
+                    <ul class="images">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>1</li>
+                    </ul>
+                    <!-- 导航点 -->
+                    <div class="navigation">
+                    </div>
+                    <!-- 切换图片 -->
+                    <div class="cut">
+                        <div class="prev">
+                            < </div>
+                                <div class="next">></div>
+                        </div>
+                    </div>
+            </xmp>
+
+            css：<br>
+            body,ul{
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                background-color: #cccccc;
+            }
+            .banner{
+                margin: 0 auto;
+                margin-top: 30px;
+                position: relative;
+                overflow: hidden;
+            }
+            .banner ul{
+                height: 100%;
+            }
+            .banner ul::after{
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .banner ul li{
+                list-style: none;
+                height: 100%;
+                float: left;
+                text-align: center;
+                font-size: 30px;
+                opacity: 0.7;
+            }
+            .banner ul li img{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            .banner .navigation{
+                width: 100%;
+                height: 20px;
+                position: absolute;
+                bottom: 5px;
+                text-align: center;
+            }
+            .banner .navigation span{
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: white;
+                cursor: pointer;
+                margin: 0 5px;
+            }
+            .banner .navigation span.active{
+                background-color: orange;
+            }
+            .banner .cut{
+                width: 100%;
+                position: absolute;
+                top: 40%;
+            }
+            .banner .cut div{
+                width: 10%;
+                height: 100%;
+                text-align: center;
+                cursor: pointer;
+                color: white;
+                line-height: 100%;
+            }
+            .banner .cut .prev{
+                float: left;
+            }
+            .banner .cut .next{
+                float: right;
+            }
+            p{
+                width: 80%;
+                display: block;
+                margin: 0 auto;
+                text-align: center;
+                line-height:30px;
+            }
+        </p>
+       
+        <hr>
+
+        <div class="banner bbb">
+            <ul class="images">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>1</li>
+            </ul>
+            <!-- 导航点 -->
+            <div class="navigation">
+            </div>
+            <!-- 切换图片 -->
+            <div class="cut">
+                <div class="prev">
+                    < </div>
+                        <div class="next">></div>
+                </div>
+            </div>
+            <p>
+                自定义大小，autoplay属性和导航按钮,切换时间
+            </p>
+            <hr>
+
+            <div class="banner ccc">
+                <ul class="images">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>1</li>
+                </ul>
+                <!-- 导航点 -->
+                <div class="navigation">
+                </div>
+                <!-- 切换图片 -->
+                <div class="cut">
+                    <div class="prev">
+                        < </div>
+                            <div class="next">></div>
+                    </div>
+                </div>
+                <p>
+                    自定义大小，autoplay属性和导航点,默认切换时间
+                </p>
+                <hr>
+
+                <div class="banner ddd">
+                    <ul class="images">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>1</li>
+                    </ul>
+                    <!-- 导航点 -->
+                    <div class="navigation">
+                    </div>
+                    <!-- 切换图片 -->
+                    <div class="cut">
+                        <div class="prev">
+                            < </div>
+                                <div class="next">></div>
+                        </div>
+                    </div>
+                    <p>
+                        默认大小，autoplay属性和导航点和导航按钮默认切换时间
+                    </p>
+
+
+
+
+
+                    <script src="./index.js"></script>
+                    <script>
+
+                        var a = new Banner("aaa",
+                            {
+                                autoplay: false,
+                                navshow: true,
+                                cutshow: true,
+                                bannerWidth: 300,
+                                bannerHeight: 200
+                            }
+                        )
+                        a.init()
+
+                        var b = new Banner("bbb",
+                            {
+                                autoplay: true,
+                                navshow: false,
+                                cutshow: true,
+                                bannerWidth: 200,
+                                bannerHeight: 100,
+                                autoplayTime:2000
+                            }
+                        )
+                        b.init()
+
+                        var c = new Banner("ccc",
+                            {
+                                autoplay: true,
+                                navshow: true,
+                                cutshow: false,
+                                bannerWidth: 500,
+                                bannerHeight: 300
+                            }
+                        )
+                        c.init()
+
+                        var d = new Banner("ddd",
+                            {
+                                autoplay: true,
+                                navshow: true,
+                                cutshow: true,
+                                
+                            }
+                        )
+                        d.init()
+
+
+                    </script>
+</body>
+
+</html>
