@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            overflow: hidden;
+            height: 100%;
+
+        }
+
+        body {
+            background: #888888;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stage {
+            margin: 20px auto;
+            background: #eaeaea;
+            font-size: 0;
+        }
+
+        .canvas.in {
+            cursor: none !important;
+        }
+
+        #canvas {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <canvas id="canvas" width='400' height="600" class="canvas"></canvas>
+    </div>
+    <script src="./qqdzz/preloadsheet.js"></script>
+
+    <script>
+        /**@type{HTMLCanvasElement}*/
+
+        // setInterval(function () {  },60)
+        var key = true
+        var fps = 0
+        var img = new Image();
+        var arr = []
+        img.src = "./qqdzz/preloadsheet.png";
+        var colorArr = [
+            "#FF9966",
+            "#FF6666",
+            "#99CCFF",
+            "#666633",
+            "#6699CC",
+            "#CCCCFF",
+            "#CC3399",
+            "#66CCCC",
+            "#CC0066"
+        ];
+        var stage = document.querySelector('.stage')
+        var cvs = document.querySelector('#canvas')
+        var ctx = cvs.getContext("2d");
+
+        function sColor() {
+            return colorArr[Math.floor(Math.random() * colorArr.length)]
+        }
+        var game = {
+            stageW: cvs.width,
+            stageH: cvs.height,
+            key: true,
+            b: 0,
+            ag: true,
+            cont: 0
+            // st: btn('start_btn_png'),
+        }
+        var config = {
+            st: new btn('start_btn_png', 2, 4, 50),
+            balance: new btn('balance_base_bg_png', 1, 1, -150),
+            ag: new btn('again_btn_png', 2, 5, 150),
+
+            random: function (x, y) {
+                return Math.round(Math.random() * (y - x)) + x
+            },
+            center: {
+                x: cvs.width / 2,
+                y: cvs.height / 2
+            },
+            obc: sColor(),
+            score: function () {
+                ctx.beginPath()
+                ctx.fillStyle = 'black'
+                ctx.font = "16px Arial";
+                ctx.fillText("得分:" + game.cont + "", 20, 50);
+                ctx.closePath()
+            },
+            cache: function () {
+                var cc = localStorage.length
+
+                localStorage.setItem(cc, game.cont)
+            }
+        }
+        // console.log(cc.length);
+
+        // console.log(config.balance.sx);
+
+        var a = {
+            r: 50,
+            maxR: 50,
+            minR: 40,
+            zoom: false,
+            color: sColor()
+        };
+        var b = {
+            r: 30,
+            maxR: 30,
+            minR: 20,
+            zoom: false,
+            color: sColor()
+        };
+
+
+        function btn(name, w1, w2, y1) {
+            this.name = name,
+                this.sx = file[this.name].x
+            this.sy = file[this.name].y
+            this.sw = file[this.name].w
+            this.sh = file[this.name].h
+
+            this.w = (game.stageW * w1) / w2,
+                this.h = ((file[this.name].h / file[this.name].w) * (game.stageW * w1)) / w2,
+                this.x = (game.stageW - (game.stageW * 2) / 4) / 2,
+                this.y = game.stageH / 2 + y1
+        }
+
+        function ob(x, y, r, c) {
+            this.r = r
+            this.c = c
+            this.x = x
+            this.y = y
+        }
+        ob.prototype.wd = function (qr) {
+            if (game.b <= qr && game.key) {
+                game.b++
+            } else if (game.b == 0) {
+                game.key = true
+            } else {
+                game.key = false
+                game.b--
+            }
+            console.log(game.b);
+            ctx.strokeStyle = 'black'
+            ctx.beginPath()
+            ctx.arc(this.x, this.y, this.r + game.b, 0, Math.PI * 2)
+            ctx.stroke()
+            ctx.closePath()
+        }
+        ob.prototype.move = function (mx, my) {
+            // console.log(mx);
+            this.x = mx
+            this.y = my
+        }
+        ob.prototype.collision = function (emb) {
+            var ck = Math.sqrt((emb.x - this.x) * (emb.x - this.x) + (emb.y - this.y) * (emb.y -
+                this
+                .y))
+            if (ck < emb.r + this.r) {
+                if (emb.r < this.r) {
+                    this.r += emb.r / 30
+                    emb.ck = true
+                    game.cont++
+                    stage.style.background = '#eaeaea'
+                } else {
+                    key = false
+                    // over();
+                    stage.style.background = '#989898'
+                }
+            }
+        }
+
+
+        function Emb(r, c, s) {
+            this.ck = false
+            this.r = r
+            this.c = c
+            this.ss = s
+            this.fx(this.r)
+        }
+        // 球的方向
+        Emb.prototype.fx = function (r) {
+            this.s = Math.round(Math.random() * 3)
+            switch (this.s) {
+                case 0:
+                    this.x = config.random(-r, cvs.width + r)
+                    this.y = -r
+                    break;
+                case 1:
+                    this.y = config.random(-r, cvs.height + r)
+                    this.x = r + cvs.width
+                    break;
+                case 2:
+                    this.x = config.random(-r, cvs.width + r)
+                    this.y = r + cvs.height
+                    break;
+                default:
+                    this.y = config.random(-r, cvs.height + r)
+                    this.x = -r
+            }
+        }
+        Emb.prototype.Speed = function () {
+            if (this.x > game.stageW) {
+                this.sx = -config.random(0, 5);
+                this.sy = config.random(-5, 5);
+            }
+            if (this.x < 0) {
+                this.sx = config.random(0, 5);
+                this.sy = config.random(-5, 5);
+            }
+            if (this.y > game.stageH) {
+                this.sx = config.random(-5, 5);
+                this.sy = -config.random(0, 5);
+            }
+            if (this.y < 0) {
+                this.sx = config.random(-5, 5);
+                this.sy = config.random(0, 5);
+            }
+        };
+        Emb.prototype.move = function () {
+            this.x = this.x + this.sx;
+            this.y = this.y + this.sy;
+        }
+        Emb.prototype.die = function () {
+            if (this.x > this.r + game.stageW || this.r > game.stageH + this.y || this.r < -this
+                .r ||
+                this
+                .r < -
+                this.r || this.ck == true) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function db(x, y, r, c) {
+            ctx.fillStyle = c
+            ctx.strokeStyle = c
+            ctx.beginPath()
+            ctx.arc(x, y, r, 0, Math.PI * 2)
+            ctx.fill()
+            ctx.closePath()
+        }
+
+        var ourboll = new ob(config.center.x, config.center.y, 5, config.obc)
+
+        function start() {
+            if (!key) {
+                return
+            }
+            fps++
+            config.score()
+            // console.log(fps);
+            if (fps % 10 == 0) {
+                var emb = new Emb(config.random(ourboll.r - Math.floor(ourboll.r * 0.8), ourboll.r +
+                    Math
+                    .floor(
+                        ourboll
+                        .r * 1.2)), sColor(), 5)
+                emb.Speed()
+                arr.push(emb)
+            }
+            arr.forEach(function (e, i) {
+                e.move()
+                db(e.x, e.y, e.r, e.c)
+            })
+            arr.forEach(function (e, i) {
+                ourboll.collision(e)
+                if (e.die()) {
+                    arr.splice(i, 1)
+                }
+            })
+
+            // ourboll.wd(2)
+            db(ourboll.x, ourboll.y, ourboll.r, ourboll.c)
+        }
+
+        function over() {
+            document.querySelector('.canvas').classList.remove('in')
+            var fff = ranking(game.cont)
+            // clearInterval(process)
+            ctx.beginPath()
+            ctx.drawImage(img, config.balance.sx, config.balance.sy, config.balance.sw, config.balance
+                .sh,
+                0, config.balance.y,
+                config.balance.w, config.balance.h)
+
+            ctx.fillStyle = '#fff'
+            ctx.font = "20px Arial";
+            ctx.fillText(game.cont, config.center.x - 5, config.center.y + 25);
+            ctx.closePath()
+
+            ctx.fillStyle = '#fff'
+            ctx.font = "20px Arial";
+            ctx.fillText(fff, config.center.x + 15, config.center.y + 95);
+            ctx.closePath()
+
+            ctx.beginPath()
+            ctx.drawImage(img, config.ag.sx, config.ag.sy, config.ag.sw, config.ag.sh,
+                config.ag.x, config.ag.y,
+                config.ag.w, config.ag.h)
+            ctx.closePath()
+
+
+
+            // 结束
+            cvs.addEventListener('click', function (e) {
+                var x = e.offsetX >= config.ag.x && e.offsetX <= config.ag.x + config.ag.w;
+                var y = e.offsetY >= config.ag.y && e.offsetY <= config.ag.y + config.ag.h;
+                if (x && y) {
+                    if (!key) {
+                        config.cache()
+                    }
+                    key = true
+                    game.cont = 0
+                    ourboll.x = config.center.x
+                    ourboll.y = config.center.y
+                    ourboll.r = 5
+                    ourboll.c = config.obc
+                    document.querySelector('.canvas').classList.add('in')
+                    stage.style.background = '#eaeaea'
+                }
+            })
+        }
+
+        function ranking(cont) {
+            var rank = []
+            var px = 0
+            var rk
+            for (const key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    // console.log(localStorage[key]);
+                    rank.push(localStorage[key])
+                    rank.sort(function (a, b) {
+                        return a - b
+                    })
+                    var rank1 = unique2(rank)
+                }
+            }
+            rank1.forEach(function (e, i) {
+                if (e < cont) {
+                    px++
+                }
+            })
+            rk = px / (rank1.length) * 100
+
+            return Math.floor(rk) 
+        }
+
+
+
+        function unique2(arr) {
+            var hash = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr.indexOf(arr[i]) == i) {
+                    hash.push(arr[i]);
+                }
+            }
+            return hash;
+        }
+
+        function ready() {
+            this.bgb(0.4, 0.4, a.r, a.color)
+            this.bgb(0.6, 0.45, b.r, b.color, 1)
+            this.bgbt()
+        }
+        ready.prototype.bgbt = function (name) {
+            ctx.beginPath()
+            ctx.drawImage(img, config.st.sx, config.st.sy, config.st.sw, config.st.sh, config.st.x,
+                config
+                .st.y,
+                config.st.w, config.st.h)
+            ctx.closePath()
+        }
+        ready.prototype.bgb = function (x, y, r, c) {
+            // console.log(b);
+            if (game.b <= 20 && game.key) {
+                game.b++
+                x1 = r + game.b
+            } else if (game.b == 0) {
+                game.key = true
+            } else {
+                game.key = false
+                game.b--
+                x1 = r + game.b
+            }
+
+            x = cvs.width * x
+            y = cvs.height * y
+
+            ctx.fillStyle = c
+            ctx.beginPath()
+            ctx.arc(x, y, r + game.b, 0, Math.PI * 2)
+            ctx.fill()
+            ctx.closePath()
+        }
+
+        // 主程序
+        var process = setInterval(function () {
+
+            ctx.clearRect(0, 0, game.stageW, game.stageH);
+            if (game.ag) {
+                var rea = new ready()
+            } else if (key) {
+                start()
+            } else {
+                over()
+            }
+            // key = true
+        }, 40)
+
+        cvs.onclick = function (e) {
+
+            var x = e.offsetX >= config.st.x && e.offsetX <= config.st.x + config.st.w;
+            var y = e.offsetY >= config.st.y && e.offsetY <= config.st.y + config.st.h;
+            if (x && y) {
+                game.ag = false
+                document.querySelector('.canvas').classList.add('in')
+                cvs.addEventListener('mousemove', function (e) {
+                    // console.log(e);
+                    ourboll.move(e.offsetX, e.offsetY)
+                })
+
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

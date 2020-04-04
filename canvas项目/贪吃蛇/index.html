@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 30px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(185, 33, 33);
+        }
+    </style>
+    <script src="./js/canvas.js"></script>
+
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <button onclick="playgame(1)">开始游戏</button>
+    <button onclick="playgame(0)">停止游戏</button>
+    <script>
+
+        var canvas = CanvasInfo.canvas({
+            idName: 'canvas',
+            w: 400,
+            h: 400,
+            border: '1px solid black'
+        })
+
+        var clearplaygame;
+        var x = y = 8;
+        var size = 8;
+        var map = [];
+        var len = 10;//默认蛇的长度
+        var code = 2;//默认为2 , 右边
+        var a = b = 0;// 食物坐标
+
+        function playgame(i) {
+            if (i) {
+                clearplaygame = setInterval(setGame, 100);
+                food();
+            } else {
+                clearInterval(clearplaygame)
+            }
+        }
+
+        function setGame() {
+
+            switch (code) {
+                case 1: y -= size; break;
+                case 2: x += size; break;
+                case 3: y += size; break;
+                case 0: x -= size; break;
+            }
+
+            //蛇不能碰撞到自己
+            for (let i = 0; i < map.length; i++) {
+                if (parseInt(map[i].x) == x && parseInt([i].y) == y) {
+                    alert('你输了')
+                    playgame(0)
+                    len = 10;
+                    window.location.reload()// 刷新页面
+                }
+                //判断食物是否在蛇身上显示
+                if (parseInt(map[i].x) == a && parseInt(map[i].y) == b) {
+                    food();
+                }
+            }
+
+            if (x > 400 - size || x < 0 || y > 400 - size || y < 0) {
+                alert('游戏结束')
+                playgame(0)
+                len = 10;
+                window.location.reload()// 刷新页面
+            }
+
+
+            if (map.length > len) {//保持蛇长固定值
+                var cl = map.shift() // 删除数组第一项,并返回值
+                canvas.clearRect(cl.x - 1, cl.y - 1, size+2, size+2)
+            }
+
+            map.push({ x, y })
+            canvas.fillStyle = 'orange';
+            canvas.strokeStyle = 'orange';
+            canvas.fillRect(x, y, size, size)
+
+            //console.log(map)
+
+            //吃食物
+            if (a == x & b == y) {
+                len++;
+                food()
+            }
+        }
+
+        document.onkeydown = function (e) {
+            var key = e.keyCode - 37;
+
+            code = key;
+
+            if (code == 1 && key != 3) {
+                code = key;
+            } else if (code == 2 && key != 0) {
+                code = key;
+            } else if (code == 3 && key != 1) {
+                code = key;
+            } else if (code == 0 && key != 2) {
+                code = key;
+            }
+        }
+
+
+        // 投放食物
+        function food() {
+            a = Math.ceil(Math.random() * 49) * 8;
+            b = Math.ceil(Math.random() * 49) * 8;
+            canvas.fillStyle = '#000';
+            canvas.strokeStyle = '#000';
+            canvas.fillRect(a, b, size, size)
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

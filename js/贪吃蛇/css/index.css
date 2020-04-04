@@ -1,0 +1,66 @@
+body {
+    background-color: lightyellow;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    height: 50px;
+    background-color: #ccc;
+}
+.header .tips {
+    /* float: left; */
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 100px;
+
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 1000;
+}
+.header .tips p {
+    font-size: 14px;
+    color: #666;
+}
+.header .text {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.header .text span {
+    color: red;
+    font-size: 28px;
+}
+
+
+.game {
+    width: 600px;
+    height: 600px;
+    background-color: skyblue;
+    /* margin-left: 10px; */
+}
+.game .map {
+    width: 90px;
+    height: 90px;
+}
+.game .map ul {
+    height: 30px;
+}
+.game .map ul li {
+    width: 28px;
+    height: 28px;
+    border:1px solid #fff;
+    float: left;
+}
+.game .map ul li.snake {
+    background-color: blue;
+}
+.game .map ul li.egg {
+    background-color: orange;
+}

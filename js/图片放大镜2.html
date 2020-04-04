@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			.stage {
+				/* overflow: hidden; */
+				margin: 40px;
+			}
+			.stage::after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.stage .main {
+				width: 200px;
+				height: 200px;
+				float: left;
+				position: relative;
+				background: red;
+			}
+			.stage .main img {
+				width: 100%;
+				display: block;
+			}
+			.stage .main .mask {
+				width: 100px;
+				height: 100px;
+				/* 图片大小 除以 放大倍数 */
+				background: rgba(0, 0, 0, 0.5);
+
+				position: absolute;
+				bottom: 0;
+				right: 0;
+
+				pointer-events: none;
+				/* 鼠标穿透 这样鼠标就指不到这个元素上 */
+			}
+			.stage .zoom {
+				width: 200px;
+				height: 200px;
+				float: left;
+				margin-left: 10px;
+				background: url("./images/banner1.jpg") no-repeat;
+				background-size: 200% auto;
+				/* 两倍大小 */
+				background-position: 0px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="main">
+				<img src="./images/banner1.jpg" alt="" />
+				<div class="mask"></div>
+			</div>
+			<div class="zoom"></div>
+		</div>
+
+		<script>
+			// 先定好 图片放大倍数 是 2
+			var main = document.querySelector(".main");
+			var mask = document.querySelector(".mask");
+			var zoom = document.querySelector(".zoom");
+
+			main.onmousemove = function(e) {
+				console.log(e.offsetX, e.offsetY);
+				var x = e.offsetX - 50;
+				var y = e.offsetY - 50;
+				// if (x > 100) {
+				// 	x = 100;
+				// }
+				// // 100 => main的宽度 减去 mask的宽度
+				// // x = (x > 100) ? 100 : x
+				// if (x < 0) {
+				// 	x = 0;
+				// }
+				// if (y > 100) {
+				// 	y = 100;
+				// }
+				// if (y < 0) {
+				// 	y = 0;
+				// }
+				x = (x > 100) ? 100 : x
+				x = (x < 0) ? 0 : x
+				y = (y > 100) ? 100 : y
+				y = (y < 0) ? 0 : y
+
+
+				
+
+				mask.style.left = x + "px";
+				mask.style.top = y + "px";
+				// 50 => 遮罩偏移 修正遮罩居中 偏移量 遮罩长宽一半
+
+				zoom.style.backgroundPositionX = x * -2 + "px";
+				zoom.style.backgroundPositionY = y * -2 + "px";
+				// 2 => 两倍大小
+			};
+		</script>
+	</body>
+</html>
