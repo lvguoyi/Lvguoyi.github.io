@@ -2,6 +2,7 @@ function Banner(ele, option) {
     this.autoplay = option.autoplay;
     this.navshow = option.navshow;
     this.cutshow = option.cutshow;
+    this.rowactive = option.rowactive;
     this.autoplayTime = option.autoplayTime || 1000;
     this.banner = document.getElementsByClassName(ele)[0];
     // this.banner = document.getElementsByClassName("banner")[0];
@@ -15,6 +16,7 @@ function Banner(ele, option) {
     this.index = 0;
     this.count = 0;
     this.timer = null;
+    this.foo = false;
     this.Lilength = this.li.length;
     this.ulWidth = this.Lilength * this.bannerWidth;
     this.liWidth = this.ulWidth / this.Lilength;
@@ -75,6 +77,9 @@ Banner.prototype.init = function () {
     this.Cut()
     this.mouse()
     this.nav()
+    if (this.rowactive) {
+        this.row()
+    }
 }
 //设置元素的宽高
 Banner.prototype.domStyle = function () {
@@ -173,7 +178,6 @@ Banner.prototype.Cut = function () {
         if (_this.count < 0) {
             _this.count = _this.Lilength - 2;
         }
-        console.log(_this.count)
         _this.removeClass()
         _this.span[_this.count].classList.add("active")
     }
@@ -229,4 +233,70 @@ Banner.prototype.nav = function () {
             })
         }
     }
+}
+
+//划过切换图片
+Banner.prototype.row = function () {
+    //鼠标按下banner盒子
+    var _this = this;
+    this.banner.onmousedown = function (event) {
+        event.preventDefault();
+        var ml = parseInt(window.getComputedStyle(_this.images, null)["marginLeft"])
+        var bannerLeft = _this.banner.offsetLeft
+        var X1 = event.pageX - bannerLeft;
+        _this.foo = true;
+
+        //鼠标在banner盒子里面移动
+        _this.banner.onmousemove = function (event) {
+            if (_this.foo) {
+                var X2 = event.pageX - bannerLeft;
+                if ((X1 - X2) < 0) {
+                    _this.foo = false;
+                    _this.index--;
+                    _this.count--;
+                    if (_this.index < 0) {
+                        _this.index = _this.Lilength - 2
+                        _this.images.style.marginLeft = -parseInt(_this.Lilength - 1) * _this.bannerWidth + "px"
+                    }
+                    _this.animate(_this.images, {
+                        marginLeft: -_this.index * _this.bannerWidth
+                    })
+                    if (_this.count < 0) {
+                        _this.count = _this.Lilength - 2;
+                    }
+                    _this.removeClass()
+                    _this.span[_this.count].classList.add("active")
+                }
+
+                if ((X1 - X2) > 0) {
+                    _this.foo = false;
+                    _this.index++;
+                    _this.count++;
+                    if (_this.index >= _this.Lilength) {
+                        _this.index = 1
+                        _this.images.style.marginLeft = "0px"
+                    }
+                    if (_this.count >= _this.Lilength - 1) {
+                        _this.count = 0
+                    }
+                    _this.animate(_this.images, {
+                        marginLeft: -_this.index * _this.bannerWidth
+                    })
+                    _this.removeClass()
+                    _this.span[_this.count].classList.add("active")
+                }
+            }
+        }
+    }
+
+
+
+
+
+    //鼠标松开
+    this.banner.onmouseup = function () {
+        _this.foo = false;
+    }
+
+
 }

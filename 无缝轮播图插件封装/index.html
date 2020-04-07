@@ -29,13 +29,14 @@
                     <div class="next">></div>
             </div>
         </div>
-        <p>基本用法：一共有五个属性，
+        <p>基本用法：一共有七个属性，
             自动轮播(autoplay),
             是否需要导航点(navshow),
             是否需要导航按钮(cutshow),
+            是否可以通过滑动切换图片(rowactive),
+            设置轮播切换时间(autoplayTime),
             是否自定义宽度(bannerWidth),
             是否自定义高度(bannerHeight),
-            设置轮播切换时间(autoplayTime)
             用法：先引入css和js和html结构，最外面的盒子必须要带有banner类名还要自己自定义一个类名(例如: class="banner
             aaa")，然后按照下面的步骤把自定义类名传进去，如果同一个页面需要用到多次该插件只需要复制html结构并且改一下自定义类名即可。<br>
             var a = new Banner("aaa",<br>
@@ -43,12 +44,13 @@
             autoplay: false,<br>
             navshow: true,<br>
             cutshow: true,<br>
+            rowactive:true,<br>
+            autoplayTime:2000 <br>
             bannerWidth: 300,<br>
             bannerHeight: 200<br>
-            autoplayTime:2000 <br>
             }
             )<br>
-            a.init() <br>
+            a.init()<br>
 
             js链接地址：
             https://github.com/lvguoyi/lvguoyi.github.io/blob/master/%E6%97%A0%E7%BC%9D%E8%BD%AE%E6%92%AD%E5%9B%BE%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/index.js
@@ -243,6 +245,7 @@
                                 autoplay: false,
                                 navshow: true,
                                 cutshow: true,
+                                rowactive:true,
                                 bannerWidth: 300,
                                 bannerHeight: 200
                             }
@@ -254,6 +257,7 @@
                                 autoplay: true,
                                 navshow: false,
                                 cutshow: true,
+                                rowactive:true,
                                 bannerWidth: 200,
                                 bannerHeight: 100,
                                 autoplayTime:2000
@@ -266,6 +270,7 @@
                                 autoplay: true,
                                 navshow: true,
                                 cutshow: false,
+                                rowactive:true,
                                 bannerWidth: 500,
                                 bannerHeight: 300
                             }
@@ -277,6 +282,7 @@
                                 autoplay: true,
                                 navshow: true,
                                 cutshow: true,
+                                rowactive:true,
                                 
                             }
                         )
