@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			background: linear-gradient(rgb(252, 233, 236), rgb(214, 241, 214));
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+		}
+
+		.stage {
+
+			margin: 40px;
+			width: 900px;
+			display: inline-block;
+		}
+
+		.stage::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.stage .main {
+			width: 400px;
+			height: 250px;
+			float: left;
+			position: relative;
+		}
+
+		.stage .main #img {
+			width: 400px;
+			display: block;
+			height: 250px;
+		}
+
+		.stage .main .mask {
+			width: 200px;
+			height: 125px;
+			/* 图片大小 除以 放大倍数 */
+			background: rgba(0, 0, 0, 0.5);
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			pointer-events: none;
+			/* 鼠标穿透 这样鼠标就指不到这个元素上 */
+		}
+
+		.stage .zoom {
+			width: 400px;
+			height: 250px;
+			float: left;
+			margin-left: 10px;
+			background: url("../3D/3D相册效果/images/studio_0001.jpg") no-repeat;
+			background-size: 200% 200%;
+			/* 两倍大小 */
+			background-position: center;
+			background-color: white;
+			display: none;
+		}
+
+		.images {
+			width: 400px;
+			height: 45px;
+
+			position: absolute;
+			top: 305px;
+		}
+
+		.images ul {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.images ul li {
+			list-style: none;
+			width: 72px;
+			height: 45px;
+			float: left;
+			cursor: pointer;
+		}
+
+		.images ul li.active {
+			box-shadow: 0px 0px 8px 3px orange;
+		}
+
+		.images ul li:nth-child(2) {
+			margin: 0 10px;
+		}
+
+		.images ul li:nth-child(4) {
+			margin: 0 10px;
+		}
+
+		.images ul li img {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		.right {
+			width: 500px;
+			height: 300px;
+			background-color: orange;
+			position: relative;
+			background: url("../3D/3D相册效果/images/studio_0001.jpg") no-repeat;
+			background-size: 100%;
+			display: inline-block;
+		}
+
+		.right .row {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: transparent;
+			border: 1px solid white;
+			background: url("../3D/3D相册效果/images/studio_0001.jpg") no-repeat;
+			background-size: 750px 450px;
+			position: absolute;
+			box-sizing: border-box;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			opacity: 0;
+		}
+
+		.bei {
+			position: absolute;
+			bottom: -60px;
+			width: 200px;
+			height: 45px;
+		}
+
+		.bei span {
+			display: inline-block;
+			width: 50px;
+			height: 45px;
+			text-align: center;
+			line-height: 45px;
+			cursor: pointer;
+			border: 1px solid white;
+			color: white;
+			font-size: 20px;
+		}
+
+		.bei span.hh {
+			box-shadow: 0px 0px 8px 3px orange;
+		}
+
+		.images1 {
+			width: 300px;
+			height: 45px;
+			bottom: -60px;
+			position: absolute;
+			left: 200px;
+		}
+
+		.images1 ul {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.images1 ul li {
+			list-style: none;
+			width: 72px;
+			height: 45px;
+			float: left;
+			cursor: pointer;
+		}
+
+		.images1 ul li.active {
+			box-shadow: 0px 0px 8px 3px orange;
+		}
+
+		.images1 ul li:nth-child(2) {
+			margin: 0 10px;
+		}
+
+		.images1 ul li:nth-child(4) {
+			margin: 0 10px;
+		}
+
+		.images1 ul li img {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stage">
+		<div class="main">
+			<img id="img" src="../3D/3D相册效果/images/studio_0001.jpg" alt="" />
+			<div class="mask"></div>
+		</div>
+		<div class="zoom"></div>
+		<div class="images">
+			<ul>
+				<li class="active"><img src="../3D//3D相册效果//images/studio_0001.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0002.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0003.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0004.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0005.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="right">
+		<div class="row">
+		</div>
+		<div class="bei">
+			<span class="hh">1.5</span>
+			<span>2</span>
+			<span>2.5</span>
+		</div>
+		<div class="images1">
+			<ul>
+				<li class="active"><img src="../3D//3D相册效果//images/studio_0001.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0002.jpg" alt=""></li>
+				<li><img src="../3D//3D相册效果//images/studio_0003.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		// 先定好 图片放大倍数 是 2
+		var main = document.querySelector(".main");
+		var mask = document.querySelector(".mask");
+		var zoom = document.querySelector(".zoom");
+		var img1 = document.getElementById("img");
+		var lis = document.querySelectorAll(".images li")
+		var lis1 = document.querySelectorAll(".images1 li")
+		var right = document.getElementsByClassName("right")[0]
+		var row = document.getElementsByClassName("row")[0]
+		var span = document.getElementsByTagName("span")
+
+
+		var arr = ["../3D//3D相册效果//images/studio_0001.jpg",
+			"../3D//3D相册效果//images/studio_0002.jpg",
+			"../3D//3D相册效果//images/studio_0003.jpg",
+			"../3D//3D相册效果//images/studio_0004.jpg",
+			"../3D//3D相册效果//images/studio_0005.jpg"]
+
+
+
+		function move(arr, a) {
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].classList.remove(a)
+			}
+		}
+
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].index = i;
+			lis[i].onclick = function () {
+				move(lis, "active")
+				this.classList.add("active")
+				img1.src = arr[this.index]
+				zoom.style.background = "url(" + arr[this.index] + ") no-repeat"
+				zoom.style.backgroundSize = "200%"
+			}
+		}
+
+		main.onmouseenter = function () {
+			zoom.style.display = "block"
+		}
+		main.onmouseleave = function () {
+			zoom.style.display = "none"
+		}
+
+		main.onmousemove = function (e) {
+			var x = e.offsetX - 100;
+			var y = e.offsetY - 75;
+			x = (x > 200) ? 200 : x
+			x = (x < 0) ? 0 : x
+			y = (y > 125) ? 125 : y
+			y = (y < 0) ? 0 : y
+			mask.style.left = x + "px";
+			mask.style.top = y + "px";
+			// 50 => 遮罩偏移 修正遮罩居中 偏移量 遮罩长宽一半
+			zoom.style.backgroundPositionX = x * -2 + "px";
+			zoom.style.backgroundPositionY = y * -2 + "px";
+			// 2 => 两倍大小
+		};
+
+		//right
+
+
+
+		var num = 1.5
+
+		for (var i = 0; i < lis1.length; i++) {
+			lis1[i].index = i
+			lis1[i].onclick = function () {
+				move(lis1, "active")
+				this.classList.add("active")
+				right.style.background = "url(" + arr[this.index] + ") no-repeat"
+				row.style.background = "url(" + arr[this.index] + ") no-repeat"
+				row.style.backgroundSize = "" + rightW * num + "px " + rightH * num + "px"
+			}
+		}
+
+		for (var i = 0; i < span.length; i++) {
+			span[i].onclick = function () {
+				move(span, "hh")
+				this.classList.add("hh")
+				num = this.innerText
+				row.style.backgroundSize = "" + rightW * num + "px " + rightH * num + "px"
+			}
+		}
+
+		var rightW = right.offsetWidth;
+		var rightH = right.offsetHeight;
+
+
+
+		right.onmousemove = function (event) {
+			row.style.opacity = 1
+			var x = event.pageX - right.offsetLeft
+			var y = event.pageY - right.offsetTop
+
+			if (x < 0 || y < 0 || x > rightW || y > rightH) {
+				row.style.opacity = 0
+			}
+
+			row.style.left = x - 100 + "px"
+			row.style.top = y - 100 + "px"
+
+			row.style.backgroundPositionX = -(x - 100 / num) * num + "px"
+			row.style.backgroundPositionY = -(y - 100 / num) * num + "px"
+		}
+	</script>
+</body>
+
+</html>
