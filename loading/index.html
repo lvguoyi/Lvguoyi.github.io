@@ -1,29 +1,289 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css//style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/loading.css">
     <style>
-       
+    
+        .box{
+           position: absolute;
+           left: 0;right: 0;
+           top: 10%;
+        }
     </style>
+    <title>Document</title>
+
 </head>
+
 <body>
     <canvas id="canvas"></canvas>
     <div class="box">
-        <div class="loading1">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="sbox s1">
+            <div class="cont">
+                <div class="lin"></div>
+                <div class="lin"></div>
+                <div class="lin"></div>
+                <div class="lin"></div>
+            </div>
+        </div>
+        <div class="sbox s2">
+            <div class="cont2">
+                <div class="bo bo1"></div>
+                <div class="bo bo2"></div>
+                <div class="bo bo3"></div>
+                <div class="bo bo4"></div>
+                <div class="bo bo5"></div>
+                <div class="bo bo6"></div>
+                <div class="bo bo7"></div>
+                <div class="bo bo8"></div>
+                <div class="bo bo9"></div>
+            </div>
+        </div>
+        <div class="sbox s3">
+            <div class="cont2">
+                <div class="sg">
+                    <div class="ssg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sbox s4">
+            <div class="box1 box"></div>
+            <div class="box2 box"></div>
+            <div class="box3 box"></div>
+            <div class="box4 box"></div>
+        </div>
+
+        <div class="sbox s5">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="margin: auto; display: block;" 
+                viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="translate(50,50)">
+                    <circle cx="0" cy="0" r="7.142857142857143" fill="none" stroke="#8cd0e5"
+                        stroke-width="1.4000000000000001" stroke-dasharray="22.43994752564138 22.43994752564138"
+                        transform="rotate(249.025)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1" begin="0"
+                            repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    <circle cx="0" cy="0" r="14.285714285714286" fill="none" stroke="#376888"
+                        stroke-width="1.4000000000000001" stroke-dasharray="44.87989505128276 44.87989505128276"
+                        transform="rotate(308.277)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1"
+                            begin="-0.1218487394957983" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    <circle cx="0" cy="0" r="21.428571428571427" fill="none" stroke="#826b88"
+                        stroke-width="1.4000000000000001" stroke-dasharray="67.31984257692413 67.31984257692413"
+                        transform="rotate(353.454)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1"
+                            begin="-0.2436974789915966" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    <circle cx="0" cy="0" r="28.571428571428573" fill="none" stroke="#de786a"
+                        stroke-width="1.4000000000000001" stroke-dasharray="89.75979010256552 89.75979010256552"
+                        transform="rotate(15.2768)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1"
+                            begin="-0.36554621848739494" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    <circle cx="0" cy="0" r="35.714285714285715" fill="none" stroke="#f8b976"
+                        stroke-width="1.4000000000000001" stroke-dasharray="112.1997376282069 112.1997376282069"
+                        transform="rotate(65.5479)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1"
+                            begin="-0.4873949579831932" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    <circle cx="0" cy="0" r="42.857142857142854" fill="none" stroke="#fcddc9"
+                        stroke-width="1.4000000000000001" stroke-dasharray="134.63968515384826 134.63968515384826"
+                        transform="rotate(126.586)">
+                        <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" times="0;1"
+                            dur="0.8403361344537814s" calcMode="spline" keySplines="0.2 0 0.8 1"
+                            begin="-0.6092436974789915" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                </g>
+            </svg>
+        </div>
+        <div class="sbox s6">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block; shape-rendering: auto;" width="204px" height="204px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="75" cy="50" fill="#376888" r="4.60596">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.9166666666666666s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.9166666666666666s"></animate>
+                </circle><circle cx="71.65063509461098" cy="62.5" fill="#376888" r="4.72737">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.8333333333333334s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.8333333333333334s"></animate>
+                </circle><circle cx="62.5" cy="71.65063509461096" fill="#376888" r="4.0607">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.75s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.75s"></animate>
+                </circle><circle cx="50" cy="75" fill="#376888" r="3.39404">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.6666666666666666s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.6666666666666666s"></animate>
+                </circle><circle cx="37.50000000000001" cy="71.65063509461098" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.5833333333333334s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.5833333333333334s"></animate>
+                </circle><circle cx="28.34936490538903" cy="62.5" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.5s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.5s"></animate>
+                </circle><circle cx="25" cy="50" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.4166666666666667s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.4166666666666667s"></animate>
+                </circle><circle cx="28.34936490538903" cy="37.50000000000001" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.3333333333333333s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.3333333333333333s"></animate>
+                </circle><circle cx="37.499999999999986" cy="28.349364905389038" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.25s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.25s"></animate>
+                </circle><circle cx="49.99999999999999" cy="25" fill="#376888" r="3">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.16666666666666666s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.16666666666666666s"></animate>
+                </circle><circle cx="62.5" cy="28.349364905389034" fill="#376888" r="3.27263">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="-0.08333333333333333s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="-0.08333333333333333s"></animate>
+                </circle><circle cx="71.65063509461096" cy="37.499999999999986" fill="#376888" r="3.9393">
+                  <animate attributeName="r" values="3;3;5;3;3" times="0;0.1;0.2;0.3;1" dur="1s" repeatCount="indefinite" begin="0s"></animate>
+                  <animate attributeName="fill" values="#376888;#376888;#8cd0e5;#376888;#376888" repeatCount="indefinite" times="0;0.1;0.2;0.3;1" dur="1s" begin="0s"></animate>
+                </circle></svg>
+        </div>
+        <div class="sbox s7">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="translate(50 50) scale(0.7000000000000001) translate(-50 -50)"><g transform="rotate(269.976 50 50)">
+                  <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" calcMode="spline" dur="4s" values="0 50 50;90 50 50;180 50 50;270 50 50;360 50 50" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 1 0 1;0 1 0 1;0 1 0 1;0 1 0 1"></animateTransform>
+                  <g transform="scale(0.541134 0.541134)">
+                    <animateTransform attributeName="transform" type="scale" dur="1s" repeatCount="indefinite" calcMode="spline" values="1;1;0.5" keyTimes="0;0.5;1" keySplines="1 0 0 1;1 0 0 1"></animateTransform>
+                    <g transform="translate(25 25)">
+                  <rect x="-25" y="-25" width="52" height="52" fill="#e15b64">
+                    
+                    <animate attributeName="fill" dur="4s" repeatCount="indefinite" calcMode="spline" values="#e15b64;#f47e60;#f8b26a;#abbd81;#e15b64" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 1 0 1;0 1 0 1;0 1 0 1;0 1 0 1"></animate>
+                  </rect>
+                </g><g transform="translate(25 75)">
+                  <rect x="-25" y="-25" width="52" height="50" fill="#e15b64" transform="scale(1 1)">
+                    <animateTransform attributeName="transform" type="scale" dur="1s" repeatCount="indefinite" calcMode="spline" values="0;1;1" keyTimes="0;0.5;1" keySplines="1 0 0 1;1 0 0 1"></animateTransform>
+                    <animate attributeName="fill" dur="4s" repeatCount="indefinite" calcMode="spline" values="#e15b64;#f47e60;#f8b26a;#abbd81;#e15b64" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 1 0 1;0 1 0 1;0 1 0 1;0 1 0 1"></animate>
+                  </rect>
+                </g><g transform="translate(75 25)">
+                  <rect x="-25" y="-25" width="50" height="52" fill="#e15b64" transform="scale(1 1)">
+                    <animateTransform attributeName="transform" type="scale" dur="1s" repeatCount="indefinite" calcMode="spline" values="0;1;1" keyTimes="0;0.5;1" keySplines="1 0 0 1;1 0 0 1"></animateTransform>
+                    <animate attributeName="fill" dur="4s" repeatCount="indefinite" calcMode="spline" values="#e15b64;#f47e60;#f8b26a;#abbd81;#e15b64" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 1 0 1;0 1 0 1;0 1 0 1;0 1 0 1"></animate>
+                  </rect>
+                </g><g transform="translate(75 75)">
+                  <rect x="-25" y="-25" width="50" height="50" fill="#e15b64" transform="scale(1 1)">
+                    <animateTransform attributeName="transform" type="scale" dur="1s" repeatCount="indefinite" calcMode="spline" values="0;1;1" keyTimes="0;0.5;1" keySplines="1 0 0 1;1 0 0 1"></animateTransform>
+                    <animate attributeName="fill" dur="4s" repeatCount="indefinite" calcMode="spline" values="#e15b64;#f47e60;#f8b26a;#abbd81;#e15b64" keyTimes="0;0.25;0.5;0.75;1" keySplines="0 1 0 1;0 1 0 1;0 1 0 1;0 1 0 1"></animate>
+                  </rect>
+                </g>
+                  </g>
+                </g></g>
+                </svg>
+        </div>
+
+        <div class="sbox s8">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <defs>
+                  <pattern id="ldio-esff46f58-pattern" patternUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+                    <g transform="translate(3.42581 0)">
+                      <g transform="rotate(20 50 50) scale(1.2)">
+                        <rect x="-20" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="-10" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="0" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="10" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="20" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="30" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="40" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="50" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="60" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="70" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="80" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="90" y="-10" width="10" height="120" fill="#f47e60"></rect>
+                        <rect x="100" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                        <rect x="110" y="-10" width="10" height="120" fill="#e15b64"></rect>
+                      </g>
+                      <animateTransform attributeName="transform" type="translate" values="0 0;26 0" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </g>
+                  </pattern>
+                </defs>
+                <rect rx="8" ry="8" x="10" y="41.5" stroke="#ffcd9a" stroke-width="2.5" width="80" height="17" fill="url(#ldio-esff46f58-pattern)"></rect>
+                </svg>
+        </div>
+
+        <div class="sbox s9">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; display: block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="50" cy="50" r="5.59349" fill="none" stroke="#0055a5" stroke-width="2">
+                  <animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;44" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-0.5s"></animate>
+                  <animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="-0.5s"></animate>
+                </circle>
+                <circle cx="50" cy="50" r="30.5722" fill="none" stroke="#45aee7" stroke-width="2">
+                  <animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;44" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline"></animate>
+                  <animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline"></animate>
+                </circle>
+                </svg>
+        </div>
+
+        <div class="sbox s10">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="translate(50 50)"> <g transform="translate(-17 -17) scale(0.5)"> <g transform="rotate(28.0251)">
+                <animateTransform attributeName="transform" type="rotate" values="0;45" keyTimes="0;1" dur="0.2s" begin="0s" repeatCount="indefinite"></animateTransform><path d="M37.3496987939662 -7 L47.3496987939662 -7 L47.3496987939662 7 L37.3496987939662 7 A38 38 0 0 1 31.359972760794346 21.46047782418268 L31.359972760794346 21.46047782418268 L38.431040572659825 28.531545636048154 L28.531545636048154 38.431040572659825 L21.46047782418268 31.359972760794346 A38 38 0 0 1 7.0000000000000036 37.3496987939662 L7.0000000000000036 37.3496987939662 L7.000000000000004 47.3496987939662 L-6.999999999999999 47.3496987939662 L-7 37.3496987939662 A38 38 0 0 1 -21.46047782418268 31.35997276079435 L-21.46047782418268 31.35997276079435 L-28.531545636048154 38.431040572659825 L-38.43104057265982 28.531545636048158 L-31.359972760794346 21.460477824182682 A38 38 0 0 1 -37.3496987939662 7.000000000000007 L-37.3496987939662 7.000000000000007 L-47.3496987939662 7.000000000000008 L-47.3496987939662 -6.9999999999999964 L-37.3496987939662 -6.999999999999997 A38 38 0 0 1 -31.35997276079435 -21.460477824182675 L-31.35997276079435 -21.460477824182675 L-38.431040572659825 -28.531545636048147 L-28.53154563604818 -38.4310405726598 L-21.4604778241827 -31.35997276079433 A38 38 0 0 1 -6.999999999999992 -37.3496987939662 L-6.999999999999992 -37.3496987939662 L-6.999999999999994 -47.3496987939662 L6.999999999999977 -47.3496987939662 L6.999999999999979 -37.3496987939662 A38 38 0 0 1 21.460477824182686 -31.359972760794342 L21.460477824182686 -31.359972760794342 L28.531545636048158 -38.43104057265982 L38.4310405726598 -28.53154563604818 L31.35997276079433 -21.4604778241827 A38 38 0 0 1 37.3496987939662 -6.999999999999995 M0 -23A23 23 0 1 0 0 23 A23 23 0 1 0 0 -23" fill="#abbd81"></path></g></g> <g transform="translate(0 22) scale(0.4)"> <g transform="rotate(39.4749)">
+                <animateTransform attributeName="transform" type="rotate" values="45;0" keyTimes="0;1" dur="0.2s" begin="-0.1s" repeatCount="indefinite"></animateTransform><path d="M37.3496987939662 -7 L47.3496987939662 -7 L47.3496987939662 7 L37.3496987939662 7 A38 38 0 0 1 31.359972760794346 21.46047782418268 L31.359972760794346 21.46047782418268 L38.431040572659825 28.531545636048154 L28.531545636048154 38.431040572659825 L21.46047782418268 31.359972760794346 A38 38 0 0 1 7.0000000000000036 37.3496987939662 L7.0000000000000036 37.3496987939662 L7.000000000000004 47.3496987939662 L-6.999999999999999 47.3496987939662 L-7 37.3496987939662 A38 38 0 0 1 -21.46047782418268 31.35997276079435 L-21.46047782418268 31.35997276079435 L-28.531545636048154 38.431040572659825 L-38.43104057265982 28.531545636048158 L-31.359972760794346 21.460477824182682 A38 38 0 0 1 -37.3496987939662 7.000000000000007 L-37.3496987939662 7.000000000000007 L-47.3496987939662 7.000000000000008 L-47.3496987939662 -6.9999999999999964 L-37.3496987939662 -6.999999999999997 A38 38 0 0 1 -31.35997276079435 -21.460477824182675 L-31.35997276079435 -21.460477824182675 L-38.431040572659825 -28.531545636048147 L-28.53154563604818 -38.4310405726598 L-21.4604778241827 -31.35997276079433 A38 38 0 0 1 -6.999999999999992 -37.3496987939662 L-6.999999999999992 -37.3496987939662 L-6.999999999999994 -47.3496987939662 L6.999999999999977 -47.3496987939662 L6.999999999999979 -37.3496987939662 A38 38 0 0 1 21.460477824182686 -31.359972760794342 L21.460477824182686 -31.359972760794342 L28.531545636048158 -38.43104057265982 L38.4310405726598 -28.53154563604818 L31.35997276079433 -21.4604778241827 A38 38 0 0 1 37.3496987939662 -6.999999999999995 M0 -23A23 23 0 1 0 0 23 A23 23 0 1 0 0 -23" fill="#e15b64"></path></g></g> <g transform="translate(28 4) scale(0.3)"> <g transform="rotate(5.5251)">
+                <animateTransform attributeName="transform" type="rotate" values="0;45" keyTimes="0;1" dur="0.2s" begin="-0.1s" repeatCount="indefinite"></animateTransform><path d="M37.3496987939662 -7 L47.3496987939662 -7 L47.3496987939662 7 L37.3496987939662 7 A38 38 0 0 1 31.359972760794346 21.46047782418268 L31.359972760794346 21.46047782418268 L38.431040572659825 28.531545636048154 L28.531545636048154 38.431040572659825 L21.46047782418268 31.359972760794346 A38 38 0 0 1 7.0000000000000036 37.3496987939662 L7.0000000000000036 37.3496987939662 L7.000000000000004 47.3496987939662 L-6.999999999999999 47.3496987939662 L-7 37.3496987939662 A38 38 0 0 1 -21.46047782418268 31.35997276079435 L-21.46047782418268 31.35997276079435 L-28.531545636048154 38.431040572659825 L-38.43104057265982 28.531545636048158 L-31.359972760794346 21.460477824182682 A38 38 0 0 1 -37.3496987939662 7.000000000000007 L-37.3496987939662 7.000000000000007 L-47.3496987939662 7.000000000000008 L-47.3496987939662 -6.9999999999999964 L-37.3496987939662 -6.999999999999997 A38 38 0 0 1 -31.35997276079435 -21.460477824182675 L-31.35997276079435 -21.460477824182675 L-38.431040572659825 -28.531545636048147 L-28.53154563604818 -38.4310405726598 L-21.4604778241827 -31.35997276079433 A38 38 0 0 1 -6.999999999999992 -37.3496987939662 L-6.999999999999992 -37.3496987939662 L-6.999999999999994 -47.3496987939662 L6.999999999999977 -47.3496987939662 L6.999999999999979 -37.3496987939662 A38 38 0 0 1 21.460477824182686 -31.359972760794342 L21.460477824182686 -31.359972760794342 L28.531545636048158 -38.43104057265982 L38.4310405726598 -28.53154563604818 L31.35997276079433 -21.4604778241827 A38 38 0 0 1 37.3496987939662 -6.999999999999995 M0 -23A23 23 0 1 0 0 23 A23 23 0 1 0 0 -23" fill="#f8b26a"></path></g></g></g>
+                </svg>
+        </div>
+
+        <div class="sbox s11">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto;display: block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <g transform="translate(50 50)">
+                  <g transform="scale(0.8)">
+                    <g transform="translate(-50 -50)">
+                      <g transform="rotate(276.119 50 50)">
+                        <animateTransform attributeName="transform" type="rotate" values="360 50 50;0 50 50" times="0;1" dur="2s" repeatCount="indefinite"></animateTransform>
+                        <path fill="#8cd0e5" d="M44.711 10.952c10.24-5.964 23.181-4.614 32.071 3.151l4.839 4.276l-6.414-1.238 c-8.102-1.688-16.88-0.113-24.532 4.276S37.284 32.67 34.696 40.547l-2.026 6.189l-1.238-6.414 C29.069 28.732 34.471 16.916 44.711 10.952z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-1.5s"></animate>
+                        </path>
+                        <path fill="#376888" d="M32.333 61.253l6.189 2.138l-4.276-4.839c-5.514-6.189-8.552-14.517-8.552-23.406s3.038-17.217 8.552-23.406 l4.276-4.839l-6.189 2.138C21.079 12.865 13.54 23.33 13.54 35.258C13.54 46.849 21.079 57.427 32.333 61.253z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-1s"></animate>
+                        </path>
+                        <path fill="#826b88" d="M32.67 77.795c6.527 0 13.054-2.363 18.23-6.864l4.839-4.276l-6.414 1.238 c-8.102 1.688-16.88 0.113-24.532-4.276c-7.652-4.389-13.391-11.253-15.979-19.13l-2.026-6.189L5.55 44.711 C3.187 56.302 8.588 68.118 18.829 74.082C23.105 76.557 27.944 77.795 32.67 77.795z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-0.5s"></animate>
+                        </path>
+                        <path fill="#8cd0e5" d="M68.568 59.678l-1.238-6.414l-2.026 6.189c-2.588 7.877-8.327 14.629-15.979 19.13 c-7.652 4.389-16.43 5.964-24.532 4.276l-6.414-1.238l4.839 4.276c5.176 4.501 11.703 6.864 18.23 6.864 c4.726 0 9.565-1.238 13.841-3.714C65.529 83.084 70.931 71.268 68.568 59.678z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-1.5s"></animate>
+                        </path>
+                        <path fill="#376888" d="M67.667 38.747l-6.189-2.138l4.276 4.839c5.514 6.189 8.552 14.517 8.552 23.406s-3.038 17.217-8.552 23.406 l-4.276 4.839l6.189-2.138C78.921 87.135 86.46 76.67 86.46 64.742C86.46 53.151 78.921 42.573 67.667 38.747z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-1s"></animate>
+                        </path>
+                        <path fill="#826b88" d="M81.171 25.918c-10.24-5.964-23.181-4.614-32.071 3.151l-4.839 4.276l6.414-1.238 c8.102-1.688 16.88-0.113 24.532 4.276c7.652 4.389 13.391 11.253 15.979 19.13l2.026 6.189l1.238-6.414 C96.813 43.698 91.412 31.882 81.171 25.918z">
+                          <animate attributeName="fill" repeatCount="indefinite" dur="2s" values="#8cd0e5;#376888;#826b88;#de786a;#8cd0e5" keyTimes="0;0.25;0.5;0.75;1" begin="-0.5s"></animate>
+                        </path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                </svg>
+        </div>
+
+        <div class="sbox s12">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="27.5" cy="49.6388" r="5" fill="#fe718d">
+                  <animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.6s"></animate>
+                </circle> <circle cx="42.5" cy="57.5" r="5" fill="#f47e60">
+                  <animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.44999999999999996s"></animate>
+                </circle> <circle cx="57.5" cy="57.5" r="5" fill="#f8b26a">
+                  <animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.3s"></animate>
+                </circle> <circle cx="72.5" cy="57.5" r="5" fill="#abbd81">
+                  <animate attributeName="cy" calcMode="spline" keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite" values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.15s"></animate>
+                </circle>
+                </svg>
         </div>
     </div>
+    </div>
+
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="./js/canvas网状粒子背景.js"></script>
     <script>
         cor = '#7bccc4'
     </script>
 </body>
+
 </html>
