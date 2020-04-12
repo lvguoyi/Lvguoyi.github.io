@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(rgb(241, 204, 210), rgb(250, 186, 67));
+		}
+
+		.stage {
+			width: 80%;
+			margin: 0 auto;
+			background: white;
+			padding: 10px;
+			border-radius: 10px;
+		}
+
+		.stage b {
+			font-weight: normal;
+			font-family: "宋体";
+		}
+
+		.stage b.success {
+			color: lightgray;
+		}
+
+		.stage b.error {
+			color: red;
+		}
+
+		.stage .inputed input {
+			min-width: 10px;
+			max-width: 100px;
+			/* width: 3em; */
+			border: none;
+			outline: none;
+			/* float: left; */
+		}
+
+		.time::after {
+			content: "秒";
+		}
+
+		.speed::after {
+			content: "/每分钟";
+		}
+
+		b {
+			display: inline-block;
+			margin: 5px 5px;
+		}
+		.score{
+			text-align: center;
+			/* height: 20px;
+			width: 200px;
+			margin: 0 auto; */
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="stage">
+		<div class="original"></div>
+		<div class="inputed">
+			<span class="renewed"></span>
+			<input type="text" id="text" />
+		</div>
+	</div>
+	<div class="score">
+		<span class="time">0</span>
+		<span class="speed">0</span>
+	</div>
+	<!-- <div style="width: 100px; height: 100px; background: red;" contenteditable="true"></div> -->
+
+	<script>
+		var timeDom = document.querySelector(".score .time");
+		var speedDom = document.querySelector(".score .speed");
+		var stage = document.querySelector(".stage");
+		var original = stage.querySelector(".original");
+		var renewed = stage.querySelector(".renewed");
+		var text = stage.querySelector("#text");
+
+
+		var str = "林动小心翼翼的驾御着脚下那由“碎元梭”拼凑而成的“黑剑”，在房间之中来回的飘荡了一会，虽说他那驾御的姿势堪称丑陋，但这却并不妨碍少年脸上的狂喜，御剑而行，他可从没想到过，这种神话般的事情，"
+		str += "他竟然能够真正的办到。林动踩着“碎元梭”，在房间中飘荡了一会，然后心神一动，那“黑剑”便是分裂而开，又是化为九道黑芒钻进了他的袖子中，而他的身体，也是轻巧的落下地面。"
+		str += "“真是不错，不过就是有些消耗精神力…”"
+
+		str += "林动拍了拍手掌，惊叹之余又是有点遗憾，如果他精神力再强横一些的话，说不定还真是能够如同那些传说中的强者一般，飞天而行，现在的话，恐怕没飞多久，就得精神力耗尽一头从天上栽落下来了。"
+
+		function init() {
+			str.split("").forEach(function (letter, index, stringArray) {
+				var node = document.createElement("b");
+				node.innerText = letter;
+				original.appendChild(node);
+				
+			});
+		}
+		init();
+		text.focus();
+
+		var condition = true;
+		text.oninput = function () {
+			// debugger
+			var userInput = this.value;
+			// console.log(userInput);
+
+			var isIncludeLetter = userInput.split("").some(function (letter, index, stringArray) {
+				return "abcdefghijklmnopqrstuvwxyz".indexOf(letter) !== -1;
+			});
+			if (isIncludeLetter) {
+				return;
+			}
+			// 排除英文字母 拼音
+
+			if (condition) {
+				// 防抖 短时间 触发了两次
+				userInput.split("").forEach(function (letter, index, stringArray) {
+					var node = document.createElement("b");
+					node.innerText = letter;
+					// 创建新节点
+					renewed.appendChild(node);
+
+					// 每次 appendChild 肯定是 追加到最后一个
+					var lastIndex = renewed.querySelectorAll("b").length - 1;
+					if (original.querySelectorAll("b").item(lastIndex).innerText === letter) {
+						original
+							.querySelectorAll("b")
+							.item(lastIndex)
+							.classList.add("success");
+						renewed
+							.querySelectorAll("b")
+							.item(lastIndex)
+							.classList.add("success");
+						successNum++;
+					} else {
+						original
+							.querySelectorAll("b")
+							.item(lastIndex)
+							.classList.add("error");
+						renewed
+							.querySelectorAll("b")
+							.item(lastIndex)
+							.classList.add("error");
+					}
+				});
+				condition = false;
+			}
+			setTimeout(function () {
+				condition = true;
+			}, 10);
+
+			this.value = "";
+		};
+		var startTimestamp;
+		var gameStart = false;
+		var successNum = 0;
+		document.body.onkeydown = function (event) {
+			// 判断 删除键
+			if (event.code === "Backspace" && renewed.hasChildNodes() && !text.value) {
+				var lastIndex = renewed.querySelectorAll("b").length - 1;
+				renewed.removeChild(renewed.lastElementChild);
+				original.querySelectorAll("b").item(lastIndex).className = "";
+			}
+
+			//
+
+			if (!gameStart) {
+				// 任意键开始
+				startTimestamp = new Date().getTime();
+				setInterval(function () {
+					var currentTimestamp = new Date().getTime();
+					console.log(currentTimestamp - startTimestamp);
+					var s1 = parseInt((currentTimestamp - startTimestamp) / 1000);
+					timeDom.innerText = s1;
+					speedDom.innerText = parseInt(successNum / (s1 / 60));
+				}, 1000);
+				gameStart = true;
+			}
+		};
+	</script>
+</body>
+
+</html>

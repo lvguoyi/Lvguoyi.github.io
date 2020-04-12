@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./index.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <p>使用方法:引入js还有创建一个canvas标签并且加上id，如果有多个canvas标签id不能相同,
+        参数有：canvas对象(ctx),x轴坐标(x),y轴坐标(y),宽度(w),高度(h),颜色填充(fillStyle),边框颜色(strokeStyle),<br>透明度(opacity),圆的半径(r),
+        起始弧度(startAngle),结束弧度(endAngle),画圆方向(anticlockwise),x轴位移(translateX),y轴位移(translateY),x轴缩放(scaleX),
+        y轴缩放(scaleY),旋转(rotate),<br>判断画圆是否要闭合(moveTo),图片路径(src), 开始剪切的 x 坐标位置(sx),开始剪切的 y 坐标位置(sy),
+        被剪切图像的宽度(sw),被剪切图像的高度(sh)
+       
+        <xmp>
+           例如： <canvas id="canvas"></canvas>
+        </xmp>
+        js地址：<br>
+
+        <br>
+        使用：
+        var ctx = Rect.canvas({ <br>
+        idName: 'canvas'<br>
+        })<br>
+        var aa = new Rects({<br>
+        canvas: ctx,<br>
+        x: 100,<br>
+        y: 100,<br>
+        w: 100,<br>
+        h: 100<br>
+        })<br>
+        <br>
+        aa.rect() 调用画矩形的方法
+        <br>
+        aa.arcs() 调用画圆的方法
+        <br>
+        aa.image() 调用画图片的方法
+    </p>
+    <script>
+
+
+        var ctx = Rect.canvas({
+            idName: 'canvas'
+        })
+
+        var aa = new Rects({
+            canvas: ctx,
+            x: 100,
+            y: 100,
+            w: 100,
+            h: 100
+        })
+
+        aa.rect()
+
+        var aa = new Rects({
+            canvas: ctx,
+            x: 300,
+            y: 300,
+            r: 50,
+            startAngle: 0,
+            endAngle: 1.5 * Math.PI,
+            fillStyle: 'orange',
+            moveTo: true
+
+        })
+
+        aa.arc()
+
+        var aa = new Rects({
+            canvas: ctx,
+            x: 400,
+            y: 400,
+            w: 100,
+            h: 100,
+            src: "../images/561220de11ea4.jpg",
+            sx: 0,
+            sy: 0,
+            sw:200,
+            sh:200
+        })
+
+       aa.image()
+
+
+    </script>
+</body>
+
+</html>

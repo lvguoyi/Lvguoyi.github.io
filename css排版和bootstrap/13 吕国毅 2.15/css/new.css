@@ -1,0 +1,312 @@
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+p {
+    padding: 0;
+    margin: 0;
+}
+ul ,ol {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.head{
+    width: 1200px;
+    height: 127px;
+    padding-top: 27px;
+    margin: 0 auto;
+    /* background-color: pink; */
+    border-top: 3px solid  rgb(233, 23, 23);
+    box-sizing: border-box;
+}
+.head .left{
+    float: left
+}
+.head .right{
+    float: right;
+}
+.head::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.head .right .top ul{
+    float: right;
+}
+.head .right .top ul li ol{
+    display: none;
+}
+.head .right .top ul li{
+    padding:0px 45px 10px 10px;
+    font-size: 12px;
+    border-bottom: 1px solid  rgb(233, 23, 23);
+    position: relative;
+
+}
+.head span{
+    position: absolute;
+    top: 34px;
+    right: 158px;
+    display: block;
+    width: 20px;
+    height: 20px;
+   
+    background-image: url('../images/inp.jpg');
+    background-size: 20px 20px;
+}
+.head .right .top ul li::after ,.head .right .top ul li::before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid  rgb(233, 23, 23) ;
+    border-right: 5px solid transparent ;
+    border-left: 5px solid transparent ;
+    border-bottom: 5px solid transparent ;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+.head .right .top ul li::after{
+    top: 6px;
+    border-top: 5px solid white ;
+}
+
+
+.head .right .top input{
+    width: 20px;
+    float: right;
+    outline: none;
+    border: none;
+    height: 20px;
+    background-color: transparent;
+}
+.head .right .top::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.head .right .bott{
+    /* background-color: yellow; */
+    margin-top: 25px;
+    position: relative;
+}
+.head .right .bott::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.head .right .bott ul li{
+    float: left;
+   font-weight: bolder;
+   cursor: pointer;
+   position: relative;
+}
+.head .right .bott ul li:hover .ol{
+    display: block;
+}
+
+
+.head .right .bott ul li .ol{
+    position: absolute;
+    left: 50%;
+    margin-left: -66px;
+    background-color: white;
+    line-height: 50px;
+    display: none;
+    z-index: 999;
+    top: 20px;
+
+}
+.head .right .bott ul li .ol li:nth-child(1){
+    margin-top: 10px;
+}
+.head .right .bott ul li .ol li:hover{
+    background-color: rgb(233, 23, 23); 
+}
+.head .right .bott ul li .ol li{
+    float: none;
+    text-align: center;
+    width: 132px;
+    padding: 0;
+    
+}
+
+.head .right .bott ul li.active{
+    color: rgb(233, 23, 23);
+}
+.head .right .bott ul li:nth-child(2){
+    padding: 0 50px;
+}
+.head .right .bott ul li:nth-child(4){
+    padding: 0 50px;
+}
+
+.head .right .bott ul li:nth-child(6){
+    padding: 0 50px;
+}
+.head .right .bott .hua{
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    width: 32px;
+    height: 4px;
+    background-color: rgb(233, 23, 23);
+    border-radius: 2px;
+    z-index: 1000;
+    transition: all 1s;
+}
+
+/* container */
+.container{
+    width: 1200px;
+    height: 1300px;
+    margin: 0 auto;
+    /* background-color: orange; */
+    border-top: 1px solid black;
+    box-sizing: border-box;
+}
+.container .he{
+    width: 978px;
+    height: 60px;
+    margin: 0 auto;
+    /* background-color: yellow; */
+    margin-top: 100px;
+}
+.container .he div.d1{
+    width: 237px;
+    height: 60px;
+    float: left;
+   
+    line-height: 60px;
+    position: relative;
+   cursor: pointer;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.ace{
+    background-color: #D10709;
+}
+.d1::after , .d1::before{
+    content:'';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 8px solid #ccc;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    right: 20px;
+    top: 27px;
+}
+.d1::after{
+    top: 25px;
+    border-top: 8px solid white;
+    
+}
+.d1:nth-child(1)::after{
+    border-top: 8px solid #D10709;
+} 
+.container .he .d1 img{
+    margin-left: 20px;
+   vertical-align: middle;
+   margin-right: 10px;
+}
+.d1 span{
+    color: #666666;
+    font-size: 18px;
+}
+.container .he .d1:nth-child(2){
+    margin: 0 10px;
+}
+.container .he .d1:nth-child(3){
+  margin-right: 10px;
+}
+.container .he::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.new .bo{
+    width: 1200px;
+    height: 410px;
+    /* background-color: aquamarine; */
+    margin-top: 30px;
+}
+ .bo ul li{
+    float: left;
+    width: 380px;
+    /* background-color: pink; */
+    height: 456px;
+    margin-top: 50px;
+}
+ .bo ul li:nth-child(2){
+    margin-left: 30px;
+}
+ .bo ul li:nth-child(3){
+    margin-left: 30px;
+}
+.bo ul li:nth-child(5){
+    margin-left: 30px;
+}
+ .bo ul li:nth-child(6){
+    margin-left: 30px;
+}
+ .bo::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.bo ul li img{
+    width: 100%
+}
+.bo ul li h3{
+    width: 380px;
+    padding: 20px 0;
+    
+}
+.bo ul li a{
+    color: rgb(129, 129, 129);
+    font-size: 15px;
+    line-height: 25px;
+    /* margin-top: 20px; */
+}
+.bo .img {
+    position: relative;
+    height: 30px;
+   padding: 0 30px;
+    font-size: 13px;
+    color: #666666;
+}
+.bo .img img{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+}
+.image{
+    margin-left: 511px;
+    margin-top: 50px;
+    cursor: pointer;
+    
+}
+
+.btn{
+    width: 30px;
+    height: 30px;
+    background-color: orange;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    position: fixed;
+    top: 600px;
+    right: 100px;
+    cursor: pointer;
+
+}

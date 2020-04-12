@@ -1,27 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body,
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    ul {
+        position: relative;
+        transition: all 1s ease;
+        top: 0;
+    }
+
+    li {
+        width: 100%;
+        height: 100vh;
+        font-size: 30px;
+        position: relative;
+        display: flex;
+        /* justify-content: center; */
+        text-align: center;
+        /* align-items: center; */
+    }
+
+    ul li:nth-child(1) {
+        background: url("../images/小黄人.jpeg") no-repeat;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+    }
+
+    ul li:nth-child(2) {
+        background: url("../images/60-1601211I037.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    ul li:nth-child(3) {
+        background: url("../images/小黄人2.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    ul li:nth-child(4) {
+        background: url("../images/小黄人3.jpeg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    ul li:nth-child(5) {
+        background: url("../images/海绵宝宝.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    ul li:nth-child(6) {
+        background: url("../images/海绵宝宝2.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    ul li:nth-child(7) {
+        background: url("../images/海绵宝宝3.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        height: 100px;
+        width: 100%;
+        z-index: 999;
+        text-align: center;
+    }
+
+    .nav span {
+        display: inline-block;
+        margin: 10px;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        color: rgb(117, 116, 116);
+        font-size: 16px;
+    }
+
+    .nav span.active::before {
+        box-shadow: 0 0 15px 6px orange;
+        content: "";
+        display: block;
+        transform: translateY(12px);
+    }
+
+    ul li div {
+        width: 100%;
+    }
+
+    ul li div a {
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(117, 116, 116);
+        display: inline-block;
+        margin: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        transition: all 0.5s;
+    }
+
+    ul li div a:hover {
+        box-shadow: 0 0 15px 6px orange;
+        content: "";
+        display: inline-block;
+        font-size: 25px;
+        color: rgb(192, 188, 188);
+    }
+
+    h1 {
+        display: block;
+        width: 100%;
+        height: 100px;
+        font-size: 30px;
+        margin-top: 100px;
+        color: rgb(117, 116, 116);
+        letter-spacing: 5px;
+        font-weight: normal;
+        animation: change 1s infinite;
+        transform-origin: 100% 0;
+        text-align: center;
+    }
+
+    @keyframes change {
+        0% {
+            transform: skew(0deg);
+        }
+
+        25% {
+            transform: skew(-10deg);
+        }
+
+        50% {
+            transform: skew(0deg);
+        }
+
+        75% {
+            transform: skew(10deg);
+        }
+
+        100% {
+            transform: skew(0deg);
+        }
+    }
+
+    h1 strong {
+        letter-spacing: 2px;
+        font-weight: bold;
+        display: inline-block;
+        position: relative;
+        text-shadow: 3px 0px black;
+    }
+    p{
+        color: rgb(236, 218, 218);
+        font-size: 25px;
+    }
+</style>
+
 <body>
-    <h1>欢迎来到lvguoyi的github项目</h1>
-    <a href="../3D//3d翻转轮播图.html">3d翻转轮播图</a>
-    <a href="../无缝轮播图插件封装//index.html">无缝轮播图插件封装</a>
-    <a href="../3D//3D相册效果/圆柱切换图片.html">圆柱切换图片</a>
-    <a href="../3D//3D相册效果/各种图片3D效果.html">各种图片3D效果</a>
-    <a href="../3D//3d文字.html">3d文字</a>
-    <a href="../3D//3D球体.html">3D球体</a>
-    <a href="../3D//3Dl立方体.html">3Dl立方体</a>
-    <a href="../3D//3d导航栏.html">3d导航栏</a>
-    <a href="../js//拖拽交换位置.html">拖拽交换位置</a>
-    <a href="../canvas项目/打砖块/index.html">Canvas打砖块</a>
-    <a href="../canvas项目//球球大作战/球球大作战.html">Canvas球球大作战</a>
-    <a href="../canvas项目/贪吃蛇/index.html">Canvas贪吃蛇</a>
-    <a href="../js/贪吃蛇/index.html">js贪吃蛇</a>
-    <a href="../js//图片放大镜.html">图片放大镜</a>
-    <a href="../js//安卓幽灵按钮.html">按钮</a>
-    <a href="../loading/index.html">加载</a>
+
+    <div class="box">
+        <div class="nav">
+            <span class="active">主页</span>
+            <span>插件封装</span>
+            <span>css排版和bootstrap</span>
+            <span>css 3D效果</span>
+            <span>Javascript项目</span>
+            <span>Jquery项目</span>
+            <span>Canvas项目</span>
+        </div>
+        <ul>
+            <li>
+                <h1>欢迎来到 <strong>Lvguoyi</strong> 的 <strong>github</strong> 项目</h1>
+            </li>
+
+            <li style="background-color: red;">
+
+                <div>
+                    <h1>插件封装</h1>
+                    <p>这是用es5面向对象封装的</p>
+                    <a href="../无缝轮播图插件封装//index.html">无缝轮播图插件封装</a>
+                    <p>这是用es6class类和类的继承封装的</p>
+                    <a href="../Canvas插件封装//index.html">Canvas插件封装</a>
+                </div>
+            </li>
+            <li style="background-color: skyblue;">
+
+                <div>
+                    <h1> <strong>css</strong> 排版和 <strong>bootstrap</strong></h1>
+                    <a href="../css排版和bootstrap/13 吕国毅 2.15/这不是首页？.html">css排版</a>
+                    <a href="../css排版和bootstrap/bootstrap/about.html">bootstrap排版</a>
+                </div>
+            </li>
+            <li style="background-color: skyblue;">
+
+                <div>
+                    <h1> <strong>css3D</strong> 效果</h1>
+                    <a href="../3D/3d翻转轮播图.html">3d翻转轮播图</a>
+                    <a href="../3D//3D相册效果/圆柱切换图片.html">圆柱切换图片</a>
+                    <a href="../3D//3D相册效果/各种图片3D效果.html">各种图片3D效果</a>
+                    <a href="../3D//3d文字.html">3d文字</a>
+                    <a href="../3D//3D球体.html">3D球体</a>
+                    <a href="../3D//3Dl立方体.html">3D立方体</a>
+                    <a href="../3D//3d导航栏.html">3d导航栏</a>
+                </div>
+            </li>
+            <li style="background-color: yellow;">
+                <div>
+                    <h1> <strong>Javascript</strong> 项目</h1>
+                    <a href="../js//打飞机/plane.html">Js打飞机小游戏</a>
+                    <a href="../js//贪吃蛇/index.html">Js贪吃蛇小游戏</a>
+                    <a href="../js//拖拽交换位置.html">拖拽交换位置</a>
+                    <a href="../js//图片放大镜.html">图片放大镜</a>
+                    <a href="../js//安卓幽灵按钮.html">按钮特效</a>
+                    <a href="../js/金山打字通.html">金山打字通效果</a>
+
+                </div>
+            </li>
+            <li style="background-color: yellow;">
+                <h1> <strong>Jquery</strong> 项目</h1>
+            </li>
+            <li style="background-color: yellow;">
+                <div>
+                    <h1> <strong>Canvas</strong> 项目</h1>
+                    <a href="../canvas项目/打砖块/index.html">Canvas打砖块</a>
+                    <a href="../canvas项目//球球大作战/球球大作战.html">Canvas球球大作战</a>
+                    <a href="../canvas项目/贪吃蛇/index.html">Canvas贪吃蛇</a>
+                    <a href="../loading/index.html">svg加载效果</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var kai = true, i = 0;
+        var oUl = document.getElementsByTagName("ul")[0];
+        var spans = document.querySelectorAll(".box .nav span")
+
+        for (var j = 0; j < spans.length; j++) {
+            spans[j].count = j
+            spans[j].onclick = function () {
+                for (let index = 0; index < spans.length; index++) {
+                    spans[index].classList.remove("active")
+                }
+                this.classList.add("active")
+                i = this.count
+                //oUl.style.transition = " 1s ease";
+                oUl.style.top = -this.count * 100 + 'vh';
+            }
+        }
+
+        document.addEventListener('mousewheel', function (ev) {
+            var ev = window.event || ev;
+            if (kai) {
+                kai = false;
+                //oUl.style.transition = " 1s ease";
+                if (ev.wheelDelta < 0 && i < 6) {
+                    i++;
+                }
+                if (ev.wheelDelta > 0 && i > 0) {
+                    i--;
+                }
+                for (let index = 0; index < spans.length; index++) {
+                    spans[index].classList.remove("active")
+                }
+                spans[i].classList.add("active")
+                oUl.style.top = -i * 100 + 'vh';
+
+                setTimeout(function () {
+                    kai = true;
+                }, 500);
+
+            }
+        });
+
+        window.onresize = function () {
+            oUl.style.transition = "none";
+        }
+    </script>
 </body>
+
 </html>
