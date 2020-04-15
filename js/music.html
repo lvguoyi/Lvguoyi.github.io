@@ -5,53 +5,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./kug/iconfont.css">
     <style>
-        *{
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./kug/iconfont.eot');
+            src: url('./kug/iconfont.eot?#iefix') format('embedded-opentype'),
+                url('./kug/iconfont.woff2') format('woff2'),
+                url('./kug/iconfont.woff') format('woff'),
+                url('./kug/iconfont.ttf') format('truetype'),
+                url('./kug/iconfont.svg#iconfont') format('svg');
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
             margin: 0;
             padding: 0;
         }
-        .box{
+
+        .box {
             width: 350px;
             height: 600px;
-            background-color: orange;
+            /* border: 1px solid black; */
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 5px #cccccc;
+            overflow: hidden;
         }
-        .name h5{
+
+        .box .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./images/背景.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.6);
+            transform: scale(1);
+
+            z-index: -1;
+        }
+
+        .name h5:nth-child(1) {
+            padding-top: 10px;
+        }
+
+        .name h5 {
             margin-top: 10px;
         }
-        .images{
+
+        .images {
             width: 250px;
             height: 250px;
             border-radius: 50%;
-            background-color: pink;
+
             margin: 0 auto;
             margin-top: 80px;
+            border: 30px solid rgb(32, 32, 32);
+            box-sizing: border-box;
+            background: url("./images/背景.jpg") no-repeat;
+            background-size: 190px 190px;
+            position: relative;
+            animation: myrotate 6s linear infinite;
+            animation-play-state: paused;
         }
-        .like{
+
+        .images.playing {
+            animation-play-state: running;
+        }
+
+        @keyframes myrotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .like {
             width: 100%;
             height: 30px;
-            background-color: purple;
+
             margin-top: 50px;
         }
-        .bar{
+
+        .bar {
             width: 100%;
             height: 30px;
-            background-color: rosybrown;
+
             margin-top: 30px;
         }
-        .cut{
-            width:100%;
+
+        .bar span {
+            display: block;
+            font-size: 12px;
+            color: #cccccc;
+            height: 30px;
+            line-height: 30px;
+            width: 30px;
+        }
+
+        .bar span:nth-child(1) {
+            float: left;
+            margin-left: 20px;
+        }
+
+        .bar span:nth-child(3) {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .bar input {
+            height: 30px;
+            width: 220px;
+        }
+
+        .bar span:nth-child(4) {
+            position: absolute;
+            bottom: 85px;
+            right: 20px;
+        }
+
+        .cut {
+            width: 100%;
             height: 50px;
-            background-color: rgb(224, 200, 178);
-            margin-top: 30px;
+
+            margin-top: 10px;
+        }
+
+        .cut span {
+            width: 50px;
+            height: 30px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            float: left;
+            margin: 0 10px;
+
+        }
+
+        .cut span:nth-child(3) {
+            font-size: 30px;
+        }
+
+        span {
+            cursor: pointer;
+        }
+
+        .like span {
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 220px;
+            border-radius: 10px;
+            height: 5px;
+            margin-top: 12.5px;
+            /*这个属性设置使填充进度条时的图形为圆角*/
+            outline: none;
+            cursor: pointer;
+
+
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 15px;
+            width: 15px;
+            margin-top: -2.5px;
+            /*使滑块超出轨道部分的偏移量相等*/
+            background: #ffffff;
+            border-radius: 50%;
+            z-index: 5;
+            position: relative;
+        }
+
+        .tiao {
+            position: absolute;
+            width: 0px;
+            border-radius: 10px;
+            height: 5px;
+            background-color: orange;
+            bottom: 77px;
+            left: 65px;
+            z-index: 1;
+        }
+
+        .list {
+            width: 100%;
+            border-radius: 10px;
+            height: 300px;
+            position: relative;
+            bottom: -10px;
+            transition: all 1s;
+            background: url("./images/k.jpg")no-repeat;
+            background-size: 100% 100%;
+            z-index: 10;
+        }
+
+        .list::after {
+            content: "";
+            width: 100%;
+            border-radius: 10px;
+            height: 300px;
+            top: 0;
+            left: 0;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        .list ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 999;
+        }
+
+        .list ul li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            cursor: pointer;
+            color: rgb(177, 170, 170);
+            font-size: 15px;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+
+        .list ul li.active {
+            color: white;
+        }
+
+        .cut span:nth-child(1) strong {
+            position: absolute;
+            font-size: 8px;
+            display: block;
+            width: 40px;
+            height: 10px;
+            font-weight: normal;
+            bottom: 40px;
+            left: 15px;
+            line-height: 10px;
+            color: rgb(49, 48, 48);
+            transition: all 1s;
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-
+    <audio autoplay src=""></audio>
     <div class="box">
+        <div class="mask"></div>
         <div class="name">
             <h5>有可能的夜晚 (Live)</h5>
             <h5>周深</h5>
@@ -60,17 +292,36 @@
 
         </div>
         <div class="like">
-
+            <span class="iconfont icon-woxihuan"></span>
+            <span class="iconfont icon-xiazai1-copy"></span>
+            <span class="iconfont icon-shipin"></span>
+            <span class="iconfont icon-xinxi"></span>
+            <span class="iconfont icon-shenglve1"></span>
         </div>
         <div class="bar">
-
+            <span>00:00</span>
+            <input type="range" value="0" min="0" step="0.01" max="220" />
+            <span>00:00</span>
+            <span>倍速</span>
+            <div class="tiao"></div>
         </div>
         <div class="cut">
-
+            <span class="iconfont iconfont icon-shunxubofang1"><strong></strong></span>
+            <span class="iconfont icon-shangyishou-"></span>
+            <span class="iconfont icon-bofang"></span>
+            <span class="iconfont icon-xiayishou-copy"></span>
+            <span class="iconfont icon-caidanzhankai"></span>
+        </div>
+        <div class="list">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </div>
-
-
 
 
     <script>
@@ -92,12 +343,310 @@
                 name: "降临 (Live)",
                 artists: "华晨宇",
                 picUrl: "https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/songs/yanyuan.jpg"
+            },
+            {
+                id: 1432428755,
+                name: "不知道什么语言1",
+                artists: "未知",
+                picUrl: "https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/songs/yanyuan.jpg"
+            },
+            {
+                id: 1432428766,
+                name: "不知道什么语言2",
+                artists: "未知",
+                picUrl: "https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/songs/yanyuan.jpg"
             }
         ];
 
-// http://music.kele8.cn/
-// https://music.163.com/song/media/outer/url?id=id.mp3
+        // http://music.kele8.cn/
+        // https://music.163.com/song/media/outer/url?id=id.mp3
 
+        var images = document.querySelector(".images")
+        var barspan1 = document.querySelector(".bar span:nth-child(1)")
+        var barsinp = document.querySelector(".bar input")
+        var barspan2 = document.querySelector(".bar span:nth-child(3)")
+        var barspan3 = document.querySelector(".bar span:nth-child(4)")
+        var cutspan1 = document.querySelector(".cut span:nth-child(1)")
+        var cutspan2 = document.querySelector(".cut span:nth-child(2)")
+        var cutspan3 = document.querySelector(".cut span:nth-child(3)")
+        var cutspan4 = document.querySelector(".cut span:nth-child(4)")
+        var cutspan5 = document.querySelector(".cut span:nth-child(5)")
+        var nameh1 = document.querySelector(".name h5:nth-child(1)")
+        var nameh2 = document.querySelector(".name h5:nth-child(2)")
+        var audio = document.querySelector("audio");
+        var mask = document.querySelector(".box .mask")
+        var tiao = document.querySelector(".tiao")
+        var ul = document.querySelector(".list ul")
+        var lis = document.querySelectorAll(".list ul li")
+        var list = document.querySelector(".list")
+        var box = document.querySelector(".box")
+        var strong = document.querySelector(".cut span:nth-child(1) strong")
+
+        var current = 0
+        var cutfoo = false;
+        var speed = false;
+
+        //图片数组
+        var imagesArr = [
+            {
+                src: "./images/背景.jpg"
+            },
+            {
+                src: "./images/背景2.jpg"
+            },
+            {
+                src: "./images/背景3.jpg"
+            },
+            {
+                src: "./images/背景4.jpg"
+            },
+            {
+                src: "./images/背景5.jpg"
+            },
+        ]
+        // 初始化第一首歌
+        changeSong(playlist[current]);
+
+        // //歌单列表
+        // function node() {
+        //     for (var i = 0; i < playlist.length; i++) {
+        //         var node = document.createElement('li');
+        //         ul.appendChild(node)
+        //         console.log(node)
+        //     }
+        // }
+        // node()
+
+
+        // 根据歌曲id 返回歌曲 url
+        function countUrl(id) {
+            return "https://music.163.com/song/media/outer/url?id=" + id + ".mp3";
+        }
+
+        cutspan3.onclick = function () {
+            // 判断播放状态
+            if (audio.paused) {
+                audio.play()
+
+            } else {
+                audio.pause()
+            }
+        }
+
+
+        // 监听播放状态
+        audio.onplay = function () {
+            images.classList.add("playing")
+            // 切换按钮
+            cutspan3.className = "iconfont icon-zantingtingzhi"
+        }
+
+        audio.onpause = function () {
+            images.classList.remove("playing")
+            cutspan3.className = "iconfont icon-bofang"
+        }
+
+
+
+        audio.ontimeupdate = function () {
+            if (isNaN(this.duration)) {
+                return
+            }
+            // 更新进度条
+            barsinp.value = ((this.currentTime * 2) / this.duration) * 220;
+
+            barsinp.value = (this.currentTime / this.duration) * 220;
+            tiao.style.width = (this.currentTime / this.duration) * 220 + "px"
+            // 更新时间
+
+            barspan1.innerText = countTime(this.currentTime)
+
+
+        }
+
+        //改变进度条更新进度
+        barsinp.onchange = function () {
+            //console.log(this.value)
+            //audio.currentTime = (this.value * audio.duration) / 220
+            audio.currentTime = (this.value * audio.duration) / 220
+        }
+
+        //切换歌曲时的总时间
+        audio.ondurationchange = function () {
+            barspan2.innerText = countTime(this.duration)
+        }
+
+
+        //时间初始化
+        function countTime(n) {
+            var n = Math.floor(n)
+            var m = Math.floor(n / 60)
+            var s = n % 60;
+            m = m > 9 ? m : "0" + m;
+            s = s > 9 ? s : "0" + s;
+            return m + ":" + s;
+        }
+
+        //切换倍速
+        barspan3.onclick = function () {
+            if (!speed) {
+                audio.playbackRate = 2
+                speed = true;
+                barspan3.style.color = "orange"
+            } else {
+                audio.playbackRate = 1
+                speed = false
+                barspan3.style.color = "white"
+            }
+            console.log(speed)
+        }
+
+        //切换歌曲
+        function changeSong(obj) {
+            audio.src = countUrl(obj.id)
+            nameh1.innerText = obj.name;
+            nameh2.innerText = obj.artists;
+            mask.style.background = 'url("' + imagesArr[current].src + '")'
+            images.style.background = 'url("' + imagesArr[current].src + '")'
+            list.style.background = 'url("' + imagesArr[current].src + '")no-repeat'
+            list.style.backgroundSize = "100%"
+            images.style.backgroundSize = "190px 190px"
+
+            //倍速
+            if (speed) {
+                audio.playbackRate = 2
+            } else {
+                audio.playbackRate = 1
+            }
+
+            lis.forEach(function (ele, index) {
+                
+                if (index == current) {
+                    ele.classList.add("active")
+                } else {
+                    ele.classList.remove("active")
+                }
+
+            })
+
+        }
+
+        // 列表顺序播放
+        audio.onended = function () {
+            if (cutfoo) {
+                current = random(playlist.length, 0)
+            } else {
+                current += 1;
+                if (current > playlist.length - 1) {
+                    // 重新从0播放
+                    current = 0;
+                }
+
+            }
+            changeSong(playlist[current]);
+        }
+
+        //下一首
+
+        function show() {
+            barsinp.value = 0;
+            tiao.style.width = "0px"
+            cutspan3.className = "iconfont icon-bofang"
+            images.classList.remove("playing")
+            images.style.transform = "rotate(0deg)"
+            setTimeout(function () {
+                cutspan3.className = "iconfont icon-zantingtingzhi"
+                images.classList.add("playing")
+            }, 500)
+        }
+
+        cutspan4.onclick = function () {
+            if (cutfoo) {
+                current = random(playlist.length, 0)
+            } else {
+                current += 1;
+                if (current > playlist.length - 1) {
+                    // 重新从0播放
+                    current = 0;
+                }
+            }
+            show()
+            //images.classList.remove("playing")
+            images.style.transform = "rotate(360deg)"
+            changeSong(playlist[current]);
+            //console.log(current)
+        }
+
+        //上一首
+
+
+
+        cutspan2.onclick = function () {
+            if (cutfoo) {
+                current = random(playlist.length, 0)
+            } else {
+                current -= 1;
+                if (current < 0) {
+                    current = playlist.length - 1;
+                }
+            }
+
+
+            show()
+            images.style.transform = "rotate(360deg)"
+            changeSong(playlist[current]);
+            
+        }
+
+        //歌单列表
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].index = i
+            y = i < 9 ? "0" + (i + 1) : i
+            lis[i].innerText = y + "." + playlist[i].name
+            lis[i].onclick = function () {
+                current = this.index
+                changeSong(playlist[this.index]);
+                list.style.bottom = "-10px"
+
+            }
+        }
+
+        cutspan5.onclick = function (e) {
+            list.style.bottom = "200px"
+            //阻止冒泡
+            e.stopPropagation();
+        }
+
+        box.onclick = function () {
+            list.style.bottom = "-10px"
+        }
+
+        //随机数
+        function random(max, min) {
+            return Math.floor(Math.random() * (max - min) + min)
+        }
+        function aa() {
+            setTimeout(function () {
+                // strong.innerText = ""
+                strong.style.opacity = 0
+            }, 1000)
+
+        }
+        cutspan1.onclick = function () {
+            if (cutfoo) {
+                this.className = "iconfont icon-shunxubofang1"
+                cutfoo = false
+                strong.style.opacity = 1
+                strong.innerText = "顺序播放"
+                aa()
+            } else {
+                this.className = "iconfont icon-bofangye-caozuolan-suijibofang"
+                cutfoo = true
+                strong.style.opacity = 1
+                strong.innerText = "随机播放"
+                aa()
+            }
+        }
     </script>
 </body>
 
