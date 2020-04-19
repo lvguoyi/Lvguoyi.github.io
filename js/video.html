@@ -1,11 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./kug/iconfont.css">
+    <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('./kug/iconfont.eot');
+            src: url('./kug/iconfont.eot?#iefix') format('embedded-opentype'),
+                url('./kug/iconfont.woff2') format('woff2'),
+                url('./kug/iconfont.woff') format('woff'),
+                url('./kug/iconfont.ttf') format('truetype'),
+                url('./kug/iconfont.svg#iconfont') format('svg');
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body,
+        ul,
+        h3 {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: #2e2e36;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        h3 {
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .play {
+            width: 100%;
+            height: 400px;
+            margin: 0 auto;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover；
+        }
+
+        .play input {
+            width: 800px;
+            position: absolute;
+            bottom: 10px;
+            left: -1px;
+            opacity: 0;
+
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 800px;
+            border-radius: 10px;
+            height: 5px;
+            margin-top: 12.5px;
+            /*这个属性设置使填充进度条时的图形为圆角*/
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 15px;
+            width: 15px;
+            margin-top: -2.5px;
+            /*使滑块超出轨道部分的偏移量相等*/
+            background: #ffffff;
+            border-radius: 50%;
+            z-index: 5;
+            position: relative;
+            left: -2px;
+        }
+
+        .tiao {
+            position: absolute;
+            width: 0px;
+            border-radius: 10px;
+            height: 5px;
+            background-color: orange;
+            bottom: 62px;
+            left: 0px;
+            z-index: 1;
+            opacity: 0;
+
+        }
+
+
+        .control {
+            width: 100%;
+            height: 50px;
+            background-color: #2e2e36;
+            line-height: 50px;
+        }
+
+        .control span {
+            cursor: pointer;
+            display: inline-block;
+            color: white;
+
+        }
+
+        .control span:nth-child(1) {
+            font-size: 20px;
+            vertical-align: bottom;
+            margin-left: 50px;
+            margin-right: 10px;
+        }
+
+        .control span:nth-child(2) {
+            margin-right: 10px;
+        }
+
+        .control span:nth-child(3) {
+            font-size: 12px;
+        }
+
+        .control span:nth-child(4) {
+            font-size: 12px;
+        }
+
+        .control span:nth-child(5) {
+            font-size: 12px;
+        }
+
+        .control span:nth-child(6) {
+            font-size: 8px;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #23232a;
+            border-radius: 10px;
+            line-height: 20px;
+            padding: 0 10px;
+            color: #ccc;
+            position: relative;
+            text-align: right;
+        }
+
+        .control span:nth-child(6).active {
+            color: orange;
+        }
+
+        .control span:nth-child(6) i {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            left: 10px;
+            top: 7px;
+            position: absolute;
+        }
+
+        .control span:nth-child(6) i.aa {
+            background-color: orange;
+            box-shadow: 0 0 5px 2px orange;
+        }
+
+        .control .text {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .control .text input {
+            width: 250px;
+            padding: 3px 5px;
+            outline: none;
+            border: 1px solid #ccc;
+            background-color: rgb(233, 225, 225);
+            border-radius: 3px;
+            color: rgb(136, 132, 132);
+
+        }
+
+        .control .text span {
+            font-size: 12px;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            background-color: rgb(184, 181, 176);
+            line-height: 24px;
+            text-align: center;
+            border-radius: 3px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>正在开发中...</h1>
+
+    <div class="box">
+        <h3>鸟语花香</h3>
+        <div class="play">
+            <video autoplay src="./video/wan.mp4"></video>
+            <input type="range" value="0" min="0" step="0.01" max="800" />
+        </div>
+        <div class="control">
+            <span class="iconfont icon-bofang"></span>
+            <span class="iconfont icon-xiayishou-copy"></span>
+            <span>00:00:00</span>
+            <span>/</span>
+            <span>00:00:00</span>
+            <span> <i></i> 弹</span>
+            <div class="text">
+                <input type="text">
+                <span>发送</span>
+            </div>
+        </div>
+
+        <div class="tiao"></div>
+    </div>
+    <script>
+
+        var video = document.querySelector(".play video")
+        var play = document.querySelector(".play")
+        var controlspan1 = document.querySelector(".control span:nth-child(1)")
+        var controlspan2 = document.querySelector(".control span:nth-child(2)")
+        var controlspan3 = document.querySelector(".control span:nth-child(3)")
+        var controlspan5 = document.querySelector(".control span:nth-child(5)")
+        var controlspan6 = document.querySelector(".control span:nth-child(6)")
+        var controli = document.querySelector(".control span:nth-child(6) i")
+        var h3 = document.querySelector("h3")
+        var tiao = document.querySelector(".tiao")
+        var playinput = document.querySelector(".play input")
+        var textinput = document.querySelector(".control .text input")
+        var textspan = document.querySelector(".control .text span")
+
+        var foo = false;
+        var count = 0;
+
+
+        arr = [
+            {
+                name: "上海滩",
+                src: "./video/shang.mp4"
+            },
+            {
+                name: "天外飞仙",
+                src: "./video/tian.mp4"
+            },
+            {
+                name: "万里长城永不倒",
+                src: "./video/wan.mp4"
+            },
+        ]
+
+        changeVideo()
+
+        controlspan1.onclick = function () {
+            if (video.paused) {
+                video.play()
+            } else {
+                video.pause()
+            }
+        }
+
+        // 监听播放状态
+        video.onplay = function () {
+            // 切换按钮
+            controlspan1.className = "iconfont icon-zantingtingzhi"
+        }
+        video.onpause = function () {
+            controlspan1.className = "iconfont icon-bofang"
+        }
+
+        //切换下一个视频
+        controlspan2.onclick = function () {
+            count += 1;
+            if (count > arr.length - 1) {
+                count = 0
+            }
+            changeVideo()
+        }
+
+        //进度条
+        video.ontimeupdate = function () {
+            if (isNaN(this.duration)) {
+                return
+            }
+            playinput.value = (this.currentTime / this.duration) * 800
+            tiao.style.width = (this.currentTime / this.duration) * 800 + "px"
+            controlspan3.innerText = countTime(this.currentTime)
+        }
+
+        //改变进度条更新进度  
+        playinput.onchange = function () {
+            video.currentTime = (this.value * video.duration) / 800
+        }
+
+        //切换歌曲时的总时间
+        video.ondurationchange = function () {
+            controlspan5.innerText = countTime(this.duration)
+        }
+
+        // 列表顺序播放(播放完当前视频自动切换下一个视频)
+        video.onended = function () {
+            count += 1;
+            if (count > arr.length - 1) {
+                count = 0
+            }
+            changeVideo()
+        }
+
+        //是否开启弹幕
+        controlspan6.onclick = function () {
+            if (!foo) {
+                foo = true
+                this.className = "active"
+                controli.className = "aa"
+                node()
+                var p = document.querySelector(".play p")
+                p.style.opacity = 1
+            } else {
+                foo = false
+                this.className = ""
+                controli.className = ""
+                node()
+                var ps = document.querySelectorAll(".play p")
+                for (var i = 0; i < ps.length; i++) {
+                    ps[i].style.opacity = 0
+                }
+            }
+        }
+
+        //发送弹幕
+        textspan.onclick = function () {
+            if (textinput.value != "") {
+                if (foo) {
+                    node()
+                } else {
+                    alert("请开启弹幕")
+                }
+                textinput.value = ''
+            } else {
+                alert("请输入要说的话")
+            }
+        }
+        //Enter键发送弹幕
+        textinput.onkeydown = function (event) {
+            if (event.keyCode == 13) {
+                if (textinput.value != "") {
+                    if (foo) {
+                        node()
+                    } else {
+                        alert("请开启弹幕")
+                    }
+                    textinput.value = ''
+                } else {
+                    alert("请输入要说的话")
+                }
+            }
+        }
+
+        //弹幕节点
+        function node() {
+            var node = document.createElement("p")
+            var value = textinput.value
+            node.innerText = value
+            node.style.position = "absolute"
+            node.style.top = random(350, 10) + "px"
+            node.style.right = -random(100, 10) + "px"
+            node.style.color = 'white'
+            node.style.fontSize = "16px"
+            play.appendChild(node)
+            var speed = 0
+            setInterval(function () {
+                var r = parseInt(getComputedStyle(node, null)["right"])
+                speed += 0.2
+                node.style.right = r + speed + 'px'
+            }, 80)
+        }
+        //随机函数
+        function random(max, min) {
+            return Math.floor(Math.random() * (max - min) + min)
+        }
+
+        //时间初始化
+        function countTime(n) {
+            var n = Math.floor(n)
+            var h = Math.floor(n / 3600)
+            var m = Math.floor(n / 60)
+            var s = n % 60
+            h = h < 10 ? "0" + h : h
+            m = m < 10 ? "0" + m : m
+            s = s < 10 ? "0" + s : s
+            return h + ":" + m + ":" + s
+        }
+
+        //鼠标进入video进度条的状态
+        play.onmouseenter = function () {
+            tiao.style.opacity = 1
+            playinput.style.opacity = 1
+        }
+        play.onmouseleave = function () {
+            tiao.style.opacity = 0
+            playinput.style.opacity = 0
+        }
+        //进入video点击切换状态
+        play.onclick = function () {
+            if (video.paused) {
+                video.play()
+            } else {
+                video.pause()
+            }
+        }
+
+        function changeVideo() {
+            video.src = arr[count].src;
+            h3.innerText = arr[count].name;
+        }
+
+    </script>
 </body>
+
 </html>
