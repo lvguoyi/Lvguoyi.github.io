@@ -332,8 +332,10 @@
                 this.className = "active"
                 controli.className = "aa"
                 node()
-                var p = document.querySelector(".play p")
-                p.style.opacity = 1
+                var px = document.querySelectorAll(".play p")
+                for (var i = 0; i < px.length; i++) {
+                    px[i].style.opacity = 1
+                }
             } else {
                 foo = false
                 this.className = ""
@@ -379,19 +381,36 @@
         function node() {
             var node = document.createElement("p")
             var value = textinput.value
+            if(value.length > 10){
+                alert("长度超出了")
+                return;
+            }
             node.innerText = value
             node.style.position = "absolute"
             node.style.top = random(350, 10) + "px"
-            node.style.right = -random(100, 10) + "px"
+            node.style.right = -random(200, 10) + "px"
             node.style.color = 'white'
             node.style.fontSize = "16px"
+            node.style.width = "100%"
+            node.style.textAlign = "right"
             play.appendChild(node)
             var speed = 0
-            setInterval(function () {
+            var timer = null
+            timer = setInterval(function () {
                 var r = parseInt(getComputedStyle(node, null)["right"])
                 speed += 0.2
                 node.style.right = r + speed + 'px'
             }, 80)
+            video.onpause = function () {
+                clearInterval(timer)
+            }
+            video.onplay = function () {
+                timer = setInterval(function () {
+                    var r = parseInt(getComputedStyle(node, null)["right"])
+                    speed += 0.2
+                    node.style.right = r + speed + 'px'
+                }, 80)
+            }
         }
         //随机函数
         function random(max, min) {
