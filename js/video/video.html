@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../kug/iconfont.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
         @font-face {
             font-family: 'iconfont';
@@ -255,6 +256,10 @@
 
         arr = [
             {
+                name: "美女",
+                src: "./meinv.mp4"
+            },
+            {
                 name: "上海滩",
                 src: "./shang.mp4"
             },
@@ -381,7 +386,7 @@
         function node() {
             var node = document.createElement("p")
             var value = textinput.value
-            if(value.length > 10){
+            if (value.length > 10) {
                 alert("长度超出了")
                 return;
             }
@@ -451,6 +456,28 @@
             video.src = arr[count].src;
             h3.innerText = arr[count].name;
         }
+
+
+        // axios
+        //     .get("http://127.0.0.1:8000/detail", {
+        //         params: {
+        //             id: 10023,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         console.log(response.data[0].src);
+        //        arr.push({
+        //            name:"侠客行",
+        //            src:response.data[0].src
+        //        })
+
+
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
+
+
 
     </script>
 </body>
