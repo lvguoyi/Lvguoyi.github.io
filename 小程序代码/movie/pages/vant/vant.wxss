@@ -1,0 +1,453 @@
+van-tab {
+  /* background-color: orange; */
+  width: 100%;
+}
+
+
+.van-nav-bar .van-nav-bar__title {
+  width: 100%;
+  max-width: 100%;
+}
+
+.van-tabs__nav {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+van-nav-bar van-tabs {
+  background-color: rgb(40, 39, 39);
+}
+
+van-nav-bar view.van-nav-bar {
+  padding-top: 0;
+}
+
+van-tabs .van-tabs__scroll {
+  background-color: black;
+}
+
+
+.van-nav-bar__left,
+.van-nav-bar__right {
+  z-index: 999;
+}
+
+van-overlay .wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+van-grid .van-grid-item__content--square {
+  padding: 0;
+}
+
+van-grid-item image {
+  filter: brightness(0.6);
+}
+
+van-grid-item view {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+van-grid-item view text {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+/* 轮播图部分 */
+.find {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.findContent {
+  width: 100%;
+
+  position: relative;
+}
+
+.findContent .swiper image {
+  filter: brightness(0.6);
+}
+
+.findContent .nav {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.findContent .nav text.active {
+  background-color: white;
+}
+
+.findContent .nav text {
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  background-color: rgb(160, 159, 159);
+  margin: 5px;
+}
+
+/* 轮播图部分end */
+
+/* 今日 */
+.today {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.today .content {
+  position: relative;
+  height: 200px;
+}
+
+.today .content image {
+  width: 100%;
+  height: 200px;
+  filter: brightness(0.6);
+}
+
+.today .content .info {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.today .content .info view {
+  height: 20px;
+}
+
+/* 今日end */
+
+/* 热门 */
+
+.hot {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.hot .content {
+  width: 50%;
+  position: relative;
+  height: 100px;
+  float: left;
+}
+
+.hot::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.hot .content:nth-child(2) {
+  width: 100%;
+  height: 200px;
+  color: black;
+
+}
+
+.hot .content:nth-child(2) .info {
+  font-size: 13px;
+}
+
+.hot .content:nth-child(2) .info view {
+  line-height: normal;
+  height: 20px;
+}
+
+.hot .content:nth-child(2) image {
+  height: 200px;
+}
+
+.hot .content image {
+  width: 100%;
+  height: 100px;
+  filter: brightness(0.6);
+}
+
+.hot .content .info {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.hot .content .info view {
+  line-height: 15px;
+}
+
+/* 热门end */
+
+/* 专题 */
+
+.zt {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+.zt .swiper .info {
+  position: absolute;
+  z-index: 999;
+  line-height: 20px;
+  font-size: 9px;
+  bottom: 20px;
+  left: 10px;
+  text-align: left;
+}
+
+.zt .swiper .info .titleTop {
+  width: 35px;
+  border-bottom: 1px solid white;
+  padding-top: 10px;
+}
+
+.zt .swiper .info .titleBottom {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+/* 专题end */
+
+/* 搜索框 */
+.tabSearch {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.search {
+  width: 100%;
+  height: 50px;
+  /* background-color: rgb(29, 29, 29); */
+  position: relative;
+}
+
+.search input {
+  width: 80%;
+  height: 30px;
+  float: left;
+  margin: 10px;
+  padding-left: 25px;
+  padding-right: 10px;
+  font-size: 10px;
+  color: rgb(193, 189, 189);
+  border: 1px solid rgb(157, 155, 155);
+  box-sizing: border-box;
+  text-align: left;
+
+}
+
+.search-icon {
+  position: absolute;
+  top: 17px;
+  left: 15px;
+  color: rgb(193, 189, 189);
+  transform: rotate(20deg);
+  font-size: 15px;
+}
+
+.search text {
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+  float: left;
+  margin-top: 10px;
+  color: rgb(182, 176, 176);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* 搜索框end */
+
+
+/* 热门搜索 */
+
+.searchHot {
+  width: 100%;
+
+}
+
+.searchHot .title {
+  width: 80%;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 13px;
+  color: rgb(182, 176, 176);
+}
+
+.searchHot .box {
+  width: 90%;
+  margin-left: 10px;
+  font-size: 9px;
+  color: rgb(182, 176, 176);
+  text-align: left;
+}
+
+.box::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.box text {
+  display: block;
+  height: 15px;
+  background-color: rgb(162, 160, 160);
+  margin-right: 10px;
+  line-height: 15px;
+  padding: 3px 8px;
+  color: rgb(233, 231, 231);
+  float: left;
+  margin-bottom: 8px;
+}
+
+/* 热门搜索end */
+
+/* 搜索历史 */
+
+.searchHistory {
+  width: 100%;
+}
+
+.searchHistory .title {
+  width: 90%;
+
+  text-align: left;
+  margin-left: 10px;
+  font-size: 13px;
+  color: rgb(182, 176, 176);
+}
+
+.searchHistory .title::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.searchHistory .title .left {
+  float: left;
+  width: 100px;
+}
+
+.searchHistory .title .right {
+  float: right;
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+
+.searchHistory .title .right van-icon {
+  margin-left: 3px;
+}
+
+.null {
+  font-size: 10px;
+  color: rgb(182, 176, 176);
+}
+
+.searchHistory .content {
+  width: 90%;
+  margin-left: 10px;
+  font-size: 9px;
+  color: rgb(182, 176, 176);
+  text-align: left;
+}
+
+.searchHistory .content::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.searchHistory .content text {
+  display: block;
+  height: 15px;
+  background-color: rgb(162, 160, 160);
+  margin-right: 10px;
+  line-height: 15px;
+  padding: 3px 8px;
+  color: rgb(233, 231, 231);
+  float: left;
+  margin-bottom: 8px;
+}
+
+.tabSearch {
+  height: 100%;
+  
+}
+
+/* 搜索历史end */
+
+/* 删除历史记录弹出框 */
+
+.alert {
+  width: 130px;
+  height: 60px;
+  background-color: rgb(65, 64, 64);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: -75px;
+  margin-top: -40px;
+  font-size: 10px;
+  color: rgb(233, 231, 231);
+  transform: scale(0);
+  transition: all 0.5s;
+}
+
+.alertActive {
+  transform: scale(1);
+}
+
+.alert .title {
+  margin-bottom: 30px;
+}
+
+.alert text {
+  float: left;
+  margin-left: 20px;
+  color: aqua;
+  font-size: 11px;
+}
+
+.alert text:nth-child(2) {
+  margin-left: 60px;
+}
+
+/* 删除历史记录弹出框end */
+
+.loading {
+  width: 100%;
+  text-align: center;
+  color: rgb(101, 101, 101);
+  background-color: rgb(40, 37, 37);
+}

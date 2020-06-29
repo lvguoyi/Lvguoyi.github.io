@@ -1,0 +1,259 @@
+.scroll-view_H {
+  white-space: nowrap;
+  height: 90px;
+}
+
+.scroll-view_H .card {
+  display: inline-block;
+  width: 42%;
+  margin-right: 15px;
+  position: relative;
+}
+
+.scroll-view_H .card:first-of-type {
+  margin-left: 15px;
+}
+
+.scroll-view_H .card image {
+  width: 100%;
+}
+
+.scroll-view_H .card .message {
+  position: absolute;
+  font-size: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: orange; */
+  color: white;
+  padding: 10px;
+  line-height: 15px;
+
+}
+
+.scroll-view_H .card .message .time {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.scroll-view_H .card .message .title {
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 86%;
+}
+
+
+.scroll-view_H .card .title text {
+  width: 100%;
+  color: white;
+}
+
+/* 加载 */
+.load {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.load image {
+  width: 15px;
+  height: 15px;
+}
+
+/* 加载end */
+
+.postTitle {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  line-height: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.postTitle .title {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+}
+
+.postTitle .info {
+  font-size: 10px;
+  margin-top: 15px;
+}
+
+.postTitle .content {
+  width: 90%;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 12px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* 更多 */
+.more {
+  margin-top: 20px;
+  height: 135px;
+  border-bottom: 1px solid #ccc;
+
+}
+
+.more .h3 text {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.more .h3 text:first-child {
+  float: left;
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+}
+
+.more .h3 text:nth-child(2) {
+  float: right;
+  vertical-align: center;
+  margin-right: 20px;
+}
+
+/* 更多end */
+
+/* 评论 */
+.user {
+  border-bottom: 1px solid #ccc;
+}
+
+.end {
+  margin-bottom: 60px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgb(186, 181, 181);
+  width: 100%;
+  text-align: center;
+}
+
+.comment .content {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.comment .content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.comment .count {
+  margin-left: 10px;
+  padding: 15px 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.comment .content .image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-left: 10px;
+  float: left;
+
+}
+
+.comment .content .image image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.comment .content .name {
+  width: 210px;
+  height: 40px;
+  margin-left: 10px;
+  float: left;
+  line-height: 20px;
+  font-size: 10px;
+  color: rgb(111, 110, 110);
+}
+
+.comment .content .name text:nth-child(2) {
+  font-size: 9px;
+  color: rgb(175, 174, 174);
+}
+
+.comment .content .name text {
+  font-size: 10px;
+  display: block;
+
+}
+
+.comment .content .icon {
+  float: right;
+  height: 40px;
+  width: 50px;
+
+  line-height: 40px;
+  position: relative;
+}
+
+.comment .content .icon text {
+  font-size: 10px;
+  position: absolute;
+  margin-left: 5px;
+}
+
+.comment .take {
+  width: 210px;
+  margin-left: 60px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+/* 评论end */
+
+/* 写评论 */
+.write {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(245, 245, 245);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.write input {
+  width: 70%;
+  height: 30px;
+  float: left;
+  margin: 10px 10px 10px 10px;
+  border-radius: 30px;
+  padding: 0 10px;
+  font-size: 10px;
+  color: rgb(55, 54, 54);
+  border: 1px solid rgb(157, 155, 155);
+  box-sizing: border-box;
+}
+
+.write text {
+  width: 50px;
+  height: 20px;
+  border-radius: 30px;
+  background-color: rgb(216, 216, 216);
+  font-size: 10px;
+  text-align: center;
+  line-height: 24px;
+  float: left;
+  margin-top: 12px;
+  color: rgb(73, 73, 73);
+  letter-spacing: 2px;
+  padding: 3px 0px;
+}
+
+/* 写评论end */

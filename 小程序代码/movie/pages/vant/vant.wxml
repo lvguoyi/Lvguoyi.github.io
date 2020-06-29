@@ -1,0 +1,140 @@
+<!--pages/vant/vant.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+<van-nav-bar safe-area-inset-top="">
+	<van-icon name="search" slot="right" />
+	<van-icon name="circle" slot="left" />
+	<van-tabs slot="title" active="{{ active }}" animated="{{true}}" bind:change="onChange">
+		<van-tab title="发现">
+			<view wx:if="{{findList.today}}" class="find">
+			<!-- 轮播图 -->
+				<view class="findContent">
+					<swiper class="swiper" autoplay="{{autoplay}}" bindchange="change">
+						<swiper-item data-postid="{{item.extra_data.app_banner_param}}"  bindtap="navitorToplay" wx:for="{{findList.banner.list}}">
+							<image style="width:100%;" mode="widthFix" src="{{item.image}}"></image>
+						</swiper-item>
+					</swiper>
+					<view class="nav">
+						<text class="text {{index==num?'active':''}}"  wx:for="{{findList.banner.list}}"></text>
+					</view>
+				</view>
+				<!-- 今日 -->
+				<view class="today">
+					<view>{{findList.today.selection_title}}</view>
+					<view data-postid="{{item.postid}}"  bindtap="navitorToplay" class="content" wx:for="{{findList.today.list}}">
+						<image width="100%" fit="widthFix" src="{{item.image}}" />
+						<view class="info">
+							<view>{{tools.parseCates(item.cates)}} / {{tools.parseTime(item.duration)}}</view>
+							<view>{{item.title}}</view>
+						</view>
+					</view>
+				</view>
+				<!-- 热门 -->
+				<view class="hot">
+					<view>热门</view>
+					<view data-postid="{{item.postid}}"  bindtap="navitorToplay" class="content" wx:for="{{findList.hot.list}}">
+						<image width="100%" fit="widthFix" src="{{item.image}}" />
+						<view class="info">
+							<view>{{tools.parseCates(item.cates)}} / {{tools.parseTime(item.duration)}}</view>
+							<view>{{item.title}}</view>
+						</view>
+					</view>
+				</view>
+				<!-- 专题 -->
+						<view class="zt">
+						<view>专题</view>
+					<view class="findContent">
+					<swiper class="swiper" autoplay="{{autoplay}}" bindchange="chan">
+						<swiper-item data-postid="{{item.postid}}"  bindtap="navitorToplay" wx:for="{{findList.album.list}}">
+						 <view class="info">
+							<view class="titleTop">专题	</view>
+							<view class="titleBottom">{{item.title}}	</view>
+								<view class="titleCenter">{{item.app_fu_title}}	</view>
+					</view>
+						<image style="width:100%;" mode="widthFix" src="{{item.image}}"></image>
+						</swiper-item>
+					</swiper>
+				
+					<view class="nav">
+						<text class="text {{index==count?'active':''}}"  wx:for="{{findList.album.list}}"></text>
+					</view>
+				</view>
+
+				<!-- 下一页 -->
+				<view wx:for="{{pageList}}" class="today">
+					<view>{{item.selection_title}}</view>
+					<view data-postid="{{card.postid}}"   bindtap="navitorToplay"  class="content" wx:for="{{item.list}}" wx:for-item="card">
+						<image width="100%" fit="widthFix" src="{{card.image}}" />
+						<view class="info">
+							<view>{{tools.parseCates(card.cates)}} / {{tools.parseTime(card.duration)}}</view>
+							<view>{{card.title}}</view>
+						</view>
+					</view>
+					
+				</view>
+				</view>
+				<view wx:if="{{showLoading}}" class="loading"><van-loading  size="24px">加载中...</van-loading></view>
+			</view>
+			<!-- 当请求不到内容时显示 -->
+      <van-notify id="van-notify" />
+			
+		</van-tab>
+		<van-tab title="频道">
+			<van-grid column-num="2" border="{{ false }}" square>
+				<van-grid-item use-slot wx:for="{{ cateList }}" data-cateid="{{item.cateid}}" bindtap="routeToPostslist">
+					<image style="width:100%" fit="cover" src="{{item.icon}}" />
+					<view><text>#{{item.catename}}#</text></view>
+				</van-grid-item>
+			</van-grid>
+		</van-tab>
+	<van-tab  class="tabSearch"  title="搜索">
+			<view class="hhh">
+					<!-- 搜索框 -->
+		<view class="search">
+		<van-icon class="search-icon" name="search" />
+		<input bindinput="inpValue" value="{{searchInp}}" class="weui-input" placeholder="请输入要搜索的内容" auto-focus /><text bindtap="navInp" wx:if="{{searchFoo}}">搜索</text><text wx:if="{{!searchFoo}}">取消</text>
+		</view>
+		<!-- 搜索框end -->
+
+		<!-- 热门搜索 -->
+
+			<view class="searchHot">
+					<view class="title">热门搜索</view>
+					<view  class="box">
+					<text bindtap="navitorSearch" data-kw="{{item.kw}}" wx:for="{{hotList}}">{{item.kw}}</text>
+					</view>
+			</view>
+
+			<!-- 热门搜索end -->
+
+			<!-- 搜索历史 -->
+
+	<view class="searchHistory">
+	<view class="title">
+	<view class="left">搜索历史</view>
+	<view bindtap="clearHistory" wx:if="{{historyList.length != 0}}" class="right">
+	<text>清除</text>
+	<van-icon name="delete" />
+	</view>
+	</view>
+			<view wx:if="{{historyList.length == 0}}" class="null">还没有任何搜索记录</view>
+			<view  wx:if="{{historyList.length != 0}}" class="content">
+					<text bindtap="navitorSearch" data-kw="{{item.kw}}" wx:for="{{historyList}}">{{item.kw}}</text>
+			</view>
+	</view>
+			<!-- 搜索历史end -->
+			</view>
+	</van-tab>
+	</van-tabs>
+</van-nav-bar>
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+	<view class="wrapper">
+		<van-loading vertical color="#1989fa">加载中...</van-loading>
+	</view>
+</van-overlay>
+
+<!-- 删除历史记录弹出框 -->
+<view  class="alert {{alertFoo === true?'alertActive':''}}">
+	<view class="title">清除历史记录?</view>
+	<text bindtap="alertFalse">取消</text>
+	<text bindtap="alertTrue">确定</text>
+</view>

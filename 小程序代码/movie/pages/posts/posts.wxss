@@ -1,0 +1,21 @@
+/* pages/posts/posts.wxss */
+.loading{
+  width: 100%;
+  background-color: rgba(99, 53, 53, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+}
+.loading van-loading{
+
+}
+
+van-overlay .wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

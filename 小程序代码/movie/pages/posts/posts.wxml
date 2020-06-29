@@ -1,0 +1,10 @@
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+	<view class="wrapper">
+		<van-loading vertical color="#1989fa">加载中...</van-loading>
+	</view>
+</van-overlay>
+<post-card wx:for="{{posts}}" post="{{item}}"></post-card>
+<!-- <view class="loading"><van-loading wx:if="{{showLoading}}" size="24px">加载中...</van-loading></view> -->
+<!-- 当请求不到内容时显示 -->
+<van-notify id="van-notify" />
+
