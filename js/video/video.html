@@ -312,7 +312,7 @@
         }
 
         //改变进度条更新进度  
-        playinput.onchange = function () {
+        playinput.oninput = function () {
             video.currentTime = (this.value * video.duration) / 800
         }
 

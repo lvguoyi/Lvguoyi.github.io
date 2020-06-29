@@ -427,7 +427,7 @@
         var current = 0
         var cutfoo = false;
         var speed = false;
-        
+
 
         //图片数组
         var imagesArr = [
@@ -504,7 +504,7 @@
             //console.log(array)
         }
 
-       // console.log(chuligeci(), "111111111111")
+        // console.log(chuligeci(), "111111111111")
 
         // 根据歌曲id 返回歌曲 url
         function countUrl(id) {
@@ -554,7 +554,7 @@
         }
 
         //改变进度条更新进度
-        barsinp.onchange = function () {
+        barsinp.oninput = function () {
             //console.log(this.value)
             //audio.currentTime = (this.value * audio.duration) / 220
             audio.currentTime = (this.value * audio.duration) / 220
